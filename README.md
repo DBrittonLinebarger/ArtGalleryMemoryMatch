@@ -17,4 +17,4 @@ I will need a source for artwork for the cards.  The Metropolitan Museum of Art 
 
 Persisting Data: User Name/ID, Round Results (highest scores/fastest time)
 
-Primary Navigation Scheme: Navigation drawer to allow users to move between screens to make selections (themes, timed/untimed round, difficulty level, scores, etc.).
+Primary Navigation Scheme: Bottom Navigation to allow users to move between screens to make selections (themes, timed/untimed round, difficulty level, scores, etc.).
