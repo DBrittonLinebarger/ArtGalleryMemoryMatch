@@ -1,0 +1,29 @@
+Gallery Memory Match
+
+Entity: player
+Attributes/Type:
+* Username: string
+* Score: long
+
+Entity: Card
+Attributes/Type:
+* Id: long
+* Object name: string
+* Title: string
+* Country: string
+* Object date: string?
+
+Entity: Themes
+Attributes/Type:
+* Title: string
+
+
+Entity: Game Status
+Attributes/Type:
+* Message: string
+* Score: long
+
+Entity: Game Time
+Attributes/Type:
+* Timer: long
+
