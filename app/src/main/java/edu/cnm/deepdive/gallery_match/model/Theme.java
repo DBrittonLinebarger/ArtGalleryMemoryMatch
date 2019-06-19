@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Themes {
+public class Theme {
 
   @PrimaryKey(autoGenerate = true)
   private long id;

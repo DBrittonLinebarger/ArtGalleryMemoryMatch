@@ -3,9 +3,12 @@ package edu.cnm.deepdive.gallery_match.model;
 import android.media.Image;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(foreignKeys = {
+    @ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id", onDelete = ForeignKey.CASCADE)
+})
 public class Cards {
 
   @PrimaryKey (autoGenerate = true)

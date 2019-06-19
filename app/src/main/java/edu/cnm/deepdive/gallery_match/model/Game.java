@@ -81,4 +81,5 @@ public class Game {
   public void setDateEnded(long dateEnded) {
     this.dateEnded = dateEnded;
   }
+
 }
