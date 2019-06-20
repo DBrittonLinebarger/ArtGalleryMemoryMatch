@@ -4,6 +4,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+import java.util.Date;
 
 
 @Entity(foreignKeys = {@ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id",
@@ -21,7 +24,9 @@ public class Game {
   @ColumnInfo(name = "theme_id", index = true)
   private long themeId;
 
-  private int time;
+  @ColumnInfo(name = "play_time", index = true)
+  private int playTime;
+
 
   private int score;
 
@@ -30,6 +35,17 @@ public class Game {
 
   @ColumnInfo(name = "date_ended", index = true)
   private long dateEnded;
+
+  @TypeConverters(DateConverter.class)
+  private Date timestamp;
+
+  public Date getTimestamp() {
+    return timestamp;
+  }
+
+  public void setTimestamp(Date timestamp) {
+    this.timestamp = timestamp;
+  }
 
   public long getId() {
     return id;
@@ -55,12 +71,12 @@ public class Game {
     this.themeId = themeId;
   }
 
-  public int getTime() {
-    return time;
+  public int getPlayTime() {
+    return playTime;
   }
 
-  public void setTime(int time) {
-    this.time = time;
+  public void setPlayTime(int playTime) {
+    this.playTime = playTime;
   }
 
   public int getScore() {
@@ -87,4 +103,16 @@ public class Game {
     this.dateEnded = dateEnded;
   }
 
+  public static class DateConverter {
+
+    @TypeConverter
+    public static Date longToDate(Long value) {
+      return value == null ? null : new Date(value);
+    }
+
+    @TypeConverter
+    public static Long dateToLong(Date value) {
+      return value == null ? null : value.getTime();
+    }
+  }
 }
