@@ -1,16 +1,17 @@
-package edu.cnm.deepdive.gallery_match.model;
+package edu.cnm.deepdive.gallery_match.model.entity;
 
 import android.media.Image;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import java.net.URL;
 
 @Entity(foreignKeys = {
     @ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id",
         onDelete = ForeignKey.CASCADE)
 })
-public class Cards {
+public class Card {
 
   @PrimaryKey (autoGenerate = true)
   private long id;
@@ -23,13 +24,10 @@ public class Cards {
 
   private String title;
 
+  @ColumnInfo(name = "object_date", index = true)
+  private  String objectDate;
 
-  private String country;
-
-  private  String date;
-
-  private Image url;
-
+  private String url; // TODO INVESTIGATE CONVERTERS
 
   public long getId() {
     return id;
@@ -63,27 +61,19 @@ public class Cards {
     this.title = title;
   }
 
-  public String getCountry() {
-    return country;
+  public String getObjectDate() {
+    return objectDate;
   }
 
-  public void setCountry(String country) {
-    this.country = country;
+  public void setObjectDate(String objectDate) {
+    this.objectDate = objectDate;
   }
 
-  public String getDate() {
-    return date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public Image getUrl() {
+  public String getUrl() {
     return url;
   }
 
-  public void setUrl(Image url) {
+  public void setUrl(String url) {
     this.url = url;
   }
 }

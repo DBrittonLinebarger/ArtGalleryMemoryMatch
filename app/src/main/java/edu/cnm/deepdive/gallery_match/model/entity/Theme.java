@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.gallery_match.model;
+package edu.cnm.deepdive.gallery_match.model.entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
