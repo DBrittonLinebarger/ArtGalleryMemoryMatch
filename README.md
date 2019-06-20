@@ -6,8 +6,6 @@
 * [ERD](docs/erd.md)
 
 
-
-
 ## Art Gallery Memory Match Description
 
 
