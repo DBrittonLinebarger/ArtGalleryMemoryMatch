@@ -7,7 +7,8 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity(foreignKeys = {
-    @ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id", onDelete = ForeignKey.CASCADE)
+    @ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id",
+        onDelete = ForeignKey.CASCADE)
 })
 public class Cards {
 
