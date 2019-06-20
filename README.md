@@ -2,7 +2,7 @@
 
 * [User stories](docs/user-stories.md)
 * [Wireframes](docs/wireframes.md)    
-* [pdf](docs/memory-match-erd.pdf)  
+* [ERD pdf](docs/memory-match-erd.pdf)  
 * [ERD](docs/erd.md)
 
 
