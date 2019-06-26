@@ -1,0 +1,279 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "937d5c75d607accefca49765b6ff2f3d",
+    "entities": [
+      {
+        "tableName": "Card",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `object_id` TEXT, `theme_id` INTEGER NOT NULL, `title` TEXT, `object_date` TEXT, `url` TEXT, FOREIGN KEY(`theme_id`) REFERENCES `Theme`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "objectId",
+            "columnName": "object_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "themeId",
+            "columnName": "theme_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "objectDate",
+            "columnName": "object_date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Card_object_id",
+            "unique": false,
+            "columnNames": [
+              "object_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Card_object_id` ON `${TABLE_NAME}` (`object_id`)"
+          },
+          {
+            "name": "index_Card_theme_id",
+            "unique": false,
+            "columnNames": [
+              "theme_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Card_theme_id` ON `${TABLE_NAME}` (`theme_id`)"
+          },
+          {
+            "name": "index_Card_object_date",
+            "unique": false,
+            "columnNames": [
+              "object_date"
+            ],
+            "createSql": "CREATE  INDEX `index_Card_object_date` ON `${TABLE_NAME}` (`object_date`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Theme",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "theme_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Game",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `player_id` INTEGER NOT NULL, `theme_id` INTEGER NOT NULL, `play_time` INTEGER NOT NULL, `score` INTEGER NOT NULL, `date_started` INTEGER NOT NULL, `date_ended` INTEGER NOT NULL, `timestamp` INTEGER, FOREIGN KEY(`theme_id`) REFERENCES `Theme`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`player_id`) REFERENCES `Player`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "playerId",
+            "columnName": "player_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "themeId",
+            "columnName": "theme_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "playTime",
+            "columnName": "play_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateStarted",
+            "columnName": "date_started",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateEnded",
+            "columnName": "date_ended",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Game_player_id",
+            "unique": false,
+            "columnNames": [
+              "player_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Game_player_id` ON `${TABLE_NAME}` (`player_id`)"
+          },
+          {
+            "name": "index_Game_theme_id",
+            "unique": false,
+            "columnNames": [
+              "theme_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Game_theme_id` ON `${TABLE_NAME}` (`theme_id`)"
+          },
+          {
+            "name": "index_Game_play_time",
+            "unique": false,
+            "columnNames": [
+              "play_time"
+            ],
+            "createSql": "CREATE  INDEX `index_Game_play_time` ON `${TABLE_NAME}` (`play_time`)"
+          },
+          {
+            "name": "index_Game_date_started",
+            "unique": false,
+            "columnNames": [
+              "date_started"
+            ],
+            "createSql": "CREATE  INDEX `index_Game_date_started` ON `${TABLE_NAME}` (`date_started`)"
+          },
+          {
+            "name": "index_Game_date_ended",
+            "unique": false,
+            "columnNames": [
+              "date_ended"
+            ],
+            "createSql": "CREATE  INDEX `index_Game_date_ended` ON `${TABLE_NAME}` (`date_ended`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Theme",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "theme_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "Player",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "player_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "Player",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Theme",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '937d5c75d607accefca49765b6ff2f3d')"
+    ]
+  }
+}
