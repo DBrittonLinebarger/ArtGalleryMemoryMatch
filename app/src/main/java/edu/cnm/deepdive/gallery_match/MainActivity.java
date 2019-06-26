@@ -5,7 +5,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import edu.cnm.deepdive.gallery_match.controller.DashboardFragment;
 
 public class MainActivity extends AppCompatActivity
     implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity
         return true;
       case R.id.navigation_dashboard:
         mTextMessage.setText(R.string.title_dashboard);
+        getSupportFragmentManager().beginTransaction()
+            .replace(R.id.container, new DashboardFragment()).commit();
         return true;
       case R.id.navigation_notifications:
         mTextMessage.setText(R.string.title_notifications);
@@ -37,4 +41,6 @@ public class MainActivity extends AppCompatActivity
     }
     return false;
   }
+
+
 }

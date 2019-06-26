@@ -4,12 +4,20 @@
   android:layout_height="match_parent">
 
   <Button
-    android:id="@+id/button1"
+    android:id="@+id/button_theme"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@+id/seekBar1"
     android:layout_centerHorizontal="true"
     android:text="@string/select_theme" />
+
+  <Button
+    android:id="@+id/button_4x4_game"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/button_theme"
+    android:layout_centerHorizontal="true"
+    android:text="@string/select_4x4_game" />
 
   <EditText
     android:id="@+id/editText1"
@@ -19,6 +27,7 @@
     android:layout_centerHorizontal="true"
     android:layout_marginTop="16dp"
     android:ems="10"
+    android:contentDescription="@string/enter_theme"
     android:inputType="text" >
     <requestFocus />
   </EditText>

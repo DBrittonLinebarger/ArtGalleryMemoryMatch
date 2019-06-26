@@ -12,9 +12,9 @@ public class MemoryMatchApplication extends Application {
     super.onCreate();
     Stetho.initializeWithDefaults(this);
     new Thread(() -> {
-      Theme theme = new Theme();
-      theme.setTitle("Testing");
-      MemoryMatchDatabase.getInstance(this).getThemeDao().insert(theme);
+      //Theme theme = new Theme();
+      //theme.setTitle("Testing");
+      MemoryMatchDatabase.getInstance(this).getThemeDao().delete();
     }).start();
   }
 }

@@ -2,6 +2,7 @@ package edu.cnm.deepdive.gallery_match.model.database;
 
 
 import android.content.Context;
+import android.os.AsyncTask;
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
@@ -32,11 +33,42 @@ public abstract class MemoryMatchDatabase extends RoomDatabase {
 
     public static MemoryMatchDatabase getInstance(Context context) {
       if (INSTANCE == null) {
-        INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-            MemoryMatchDatabase.class, "memory_match_room")
-            .build();
+        synchronized (MemoryMatchDatabase.class) {
+          if (INSTANCE == null) {
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                MemoryMatchDatabase.class, "memory_match_room")
+                .fallbackToDestructiveMigration()
+                .addCallback(new Callback() {
+                  @Override
+                  public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                    super.onCreate(db);
+                    new PopulateDbTask(INSTANCE).execute();
+                  }
+                })
+                .build();
+          }
+        }
       }
       return INSTANCE;
     }
 
+
+  private static class PopulateDbTask extends AsyncTask<Void, Void, Void> {
+
+      private final MemoryMatchDatabase db;
+
+    public PopulateDbTask(MemoryMatchDatabase db) {
+      this.db = db;
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+      Theme theme = new Theme();
+      theme.setTitle("Testing");
+      db.getThemeDao().insert(theme);
+      return null;
+
+      //MemoryMatchDatabase.getInstance(this).getThemeDao().insert(theme);
+    }
+  }
 }
