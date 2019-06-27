@@ -14,7 +14,7 @@ public class Game4x4ActivityFragment extends Fragment {
       ViewGroup container,
       Bundle savedInstanceState) {
     //Inflate the layout for this fragment
-    View view = inflater.inflate(R.layout.game4x4activity_fragment,
+    View view = inflater.inflate(R.layout.fragment_game4x4activity,
         container, false);
     return view;
   }
