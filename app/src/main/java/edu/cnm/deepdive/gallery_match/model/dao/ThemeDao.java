@@ -21,5 +21,6 @@ public interface ThemeDao {
   @Delete
   int delete(Theme... themes);
 
+  //find by id method
 
 }
