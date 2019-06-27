@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.gallery_match.model.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -27,5 +28,11 @@ public class Theme {
 
   public void setTitle(String title) {
     this.title = title;
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    return title;
   }
 }

@@ -8,7 +8,7 @@ import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import java.util.List;
 
-//add get theme live data method
+
 public class ThemeViewModel extends AndroidViewModel {
 
   private LiveData<List<Theme>> theme;
@@ -18,8 +18,10 @@ public class ThemeViewModel extends AndroidViewModel {
   }
 
   public LiveData<List<Theme>> getThemesLiveData(){
-    MemoryMatchDatabase db = MemoryMatchDatabase.getInstance(getApplication());
-    return db.getThemeDao().getAll();
+    if(theme == null){
+      theme = MemoryMatchDatabase.getInstance(getApplication()).getThemeDao().getAll();
+    }
+    return theme;
   }
 
   //public LiveData<Theme> getTheme(Long id){

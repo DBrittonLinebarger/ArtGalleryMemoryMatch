@@ -20,6 +20,15 @@ public class DashboardFragment extends Fragment {
 
   //private Button button4x4;
   private Context context;
+  public static DashboardFragment newInstance(){
+    return new DashboardFragment();
+  }
+
+  @Override
+  public void onAttach(Context context) {
+    super.onAttach(context);
+    this.context = context;
+  }
 
   @Override
   public View onCreateView(LayoutInflater inflater,
@@ -31,14 +40,11 @@ public class DashboardFragment extends Fragment {
 
     final ThemeViewModel themeViewModel = ViewModelProviders.of(getActivity())
         .get(ThemeViewModel.class);
-    themeViewModel.getThemesLiveData().observe(this, new Observer<List<Theme>>() {
-      @Override
-      public void onChanged(List<Theme> theme) {
-        final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
-        SpinnerAdapter spinnerAdapter = new ArrayAdapter<>(context,
-            android.R.layout.simple_spinner_item, theme);
-        themeSpinner.setAdapter(spinnerAdapter);
-      }
+    themeViewModel.getThemesLiveData().observe(this, theme -> {
+      final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
+      SpinnerAdapter spinnerAdapter = new ArrayAdapter<>(context,
+          android.R.layout.simple_spinner_item, theme);
+      themeSpinner.setAdapter(spinnerAdapter);
     });
 
     return view;
