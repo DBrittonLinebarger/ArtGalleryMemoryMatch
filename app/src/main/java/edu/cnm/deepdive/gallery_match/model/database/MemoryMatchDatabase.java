@@ -66,6 +66,9 @@ public abstract class MemoryMatchDatabase extends RoomDatabase {
       Theme theme = new Theme();
       theme.setTitle("Testing");
       db.getThemeDao().insert(theme);
+      theme = new Theme();
+      theme.setTitle("Testing2");
+      db.getThemeDao().insert(theme);
       return null;
 
       //MemoryMatchDatabase.getInstance(this).getThemeDao().insert(theme);
