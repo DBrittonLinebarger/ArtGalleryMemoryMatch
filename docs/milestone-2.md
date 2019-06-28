@@ -2,7 +2,7 @@
 
 ### Current State of Implementation   
 
-The project now includes: all 4 Room entity classes, DAO iinterfaces, an abstract database class,
+The project now includes: all 4 Room entity classes, DAO interfaces, an abstract database class,
 a working Dashboard Fragment, and a Theme View Model. The app builds, runs and it looks like the 
 database is being created (preloaded with theme titles).  The reachable fragment is the Dashboard
 Fragment and it has a spinner that displays test themes from the database. I have updated the ERD
