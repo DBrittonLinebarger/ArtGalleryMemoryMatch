@@ -4,6 +4,7 @@
 * [Wireframes](docs/wireframes.md)    
 * [ERD pdf](docs/memory-match-erd.pdf)  
 * [ERD](docs/erd.md)
+* [Milestone 2](docs/milestone-2.md)
 
 
 ## Art Gallery Memory Match Description
