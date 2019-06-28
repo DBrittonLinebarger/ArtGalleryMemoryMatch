@@ -1,7 +1,8 @@
 # Art Gallery Memory Match
 
 * [User stories](docs/user-stories.md)
-* [Wireframes](docs/wireframes.md) 
+* [Wireframes](docs/wireframes.md)
+* [Updated Wireframes](docs/wireframes-updated.pdf) 
 * [ERD Update](docs/memory-match-erd-update.pdf)   
 * [ERD pdf](docs/memory-match-erd.pdf)  
 * [ERD](docs/erd.md)
