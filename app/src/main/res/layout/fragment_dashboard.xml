@@ -11,15 +11,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="144dp"
-    android:layout_marginStart="140dp"
+    android:layout_marginStart="132dp"
     android:text="@string/select_theme"
     app:layout_constraintBottom_toTopOf="@+id/theme_spinner"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/editText1"
     app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="1.0"/>
+    app:layout_constraintVertical_bias="0.0"/>
 
   <!--  <Button-->
   <!--    android:id="@+id/button_4x4_game"-->
@@ -32,13 +31,15 @@
   <EditText
     android:id="@+id/editText1"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="0dp"
+    android:layout_marginTop="60dp"
     android:contentDescription="@string/enter_theme"
     android:ems="10"
     android:inputType="text"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toBottomOf="@+id/theme_spinner"
+    >
 
     <requestFocus/>
   </EditText>
@@ -50,14 +51,14 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/theme_spinner"/>
+    app:layout_constraintTop_toBottomOf="@+id/editText1"/>
 
   <Spinner
     android:id="@+id/theme_spinner"
     android:layout_width="wrap_content"
     android:layout_height="22dp"
-    android:layout_marginTop="244dp"
-    android:layout_marginStart="180dp"
+    android:layout_marginTop="204dp"
+    android:layout_marginStart="216dp"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"/>
 
