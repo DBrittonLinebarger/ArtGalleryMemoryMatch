@@ -5,6 +5,7 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import com.google.gson.annotations.SerializedName;
 import java.net.URL;
 
 @Entity(foreignKeys = {
@@ -17,7 +18,8 @@ public class Card {
   private long id;
 
   @ColumnInfo(name = "object_id", index = true)
-  private String objectId;
+  @SerializedName("objectID")
+  private int objectId;
 
   @ColumnInfo(name = "theme_id", index = true)
   private long  themeId;
@@ -27,6 +29,7 @@ public class Card {
   @ColumnInfo(name = "object_date", index = true)
   private  String objectDate;
 
+  @SerializedName("primaryImage")
   private String url; // TODO INVESTIGATE CONVERTERS
 
   public long getId() {
@@ -37,11 +40,11 @@ public class Card {
     this.id = id;
   }
 
-  public String getObjectId() {
+  public int getObjectId() {
     return objectId;
   }
 
-  public void setObjectId(String objectId) {
+  public void setObjectId(int objectId) {
     this.objectId = objectId;
   }
 

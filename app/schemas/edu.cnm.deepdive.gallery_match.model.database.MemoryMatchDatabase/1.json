@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "937d5c75d607accefca49765b6ff2f3d",
+    "identityHash": "d09d9af378bdc7904ddaee86ffd5acac",
     "entities": [
       {
         "tableName": "Card",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `object_id` TEXT, `theme_id` INTEGER NOT NULL, `title` TEXT, `object_date` TEXT, `url` TEXT, FOREIGN KEY(`theme_id`) REFERENCES `Theme`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `object_id` INTEGER NOT NULL, `theme_id` INTEGER NOT NULL, `title` TEXT, `object_date` TEXT, `url` TEXT, FOREIGN KEY(`theme_id`) REFERENCES `Theme`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -17,8 +17,8 @@
           {
             "fieldPath": "objectId",
             "columnName": "object_id",
-            "affinity": "TEXT",
-            "notNull": false
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "themeId",
@@ -273,7 +273,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '937d5c75d607accefca49765b6ff2f3d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd09d9af378bdc7904ddaee86ffd5acac')"
     ]
   }
 }

@@ -12,8 +12,6 @@ public class Theme {
 
   private String title;
 
-
-
   public long getId() {
     return id;
   }
