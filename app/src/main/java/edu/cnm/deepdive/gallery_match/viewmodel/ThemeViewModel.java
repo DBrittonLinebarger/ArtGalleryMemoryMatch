@@ -24,10 +24,7 @@ public class ThemeViewModel extends AndroidViewModel {
     return theme;
   }
 
-  //public LiveData<Theme> getTheme(Long id){
-  //  MemoryMatchDatabase db = MemoryMatchDatabase.getInstance(getApplication());
-  //  return db.getThemeDao().findById(id);
-  //}
+
 
   public void addNewTheme(final Long themeId, final Theme newTheme) {
     new Thread(new Runnable() {
