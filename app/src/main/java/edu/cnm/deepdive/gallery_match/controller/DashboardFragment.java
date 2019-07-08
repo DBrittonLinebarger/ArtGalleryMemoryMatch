@@ -1,35 +1,27 @@
 package edu.cnm.deepdive.gallery_match.controller;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import edu.cnm.deepdive.gallery_match.R;
-import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.viewmodel.ThemeViewModel;
-import java.util.List;
 
 public class DashboardFragment extends Fragment {
 
   //private Button button4x4;
-  private Context context;
+
   public static DashboardFragment newInstance(){
     return new DashboardFragment();
   }
 
-  @Override
-  public void onAttach(Context context) {
-    super.onAttach(context);
-    this.context = context;
-
-  }
 
   @Override
   public View onCreateView(LayoutInflater inflater,
@@ -41,13 +33,17 @@ public class DashboardFragment extends Fragment {
 
     final ThemeViewModel themeViewModel = ViewModelProviders.of(getActivity())
         .get(ThemeViewModel.class);
-    themeViewModel.getThemesLiveData().observe(this, theme -> {
+    themeViewModel.getThemes().observe(this, theme -> {
       final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
-      SpinnerAdapter spinnerAdapter = new ArrayAdapter<>(context,
+      SpinnerAdapter spinnerAdapter = new ArrayAdapter<>(getContext(),
           android.R.layout.simple_spinner_item, theme);
       themeSpinner.setAdapter(spinnerAdapter);
     });
-
+    Button search = view.findViewById(R.id.button_search);
+    EditText searchTerm = view.findViewById(R.id.search_term);
+    search.setOnClickListener((v) ->
+        themeViewModel.getSearchResult(searchTerm.getText().toString().trim()).observe(this,
+            result -> {}));
     return view;
 
     //button4x4 = (Button)findViewById(R.id.button_4x4_game);

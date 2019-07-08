@@ -13,7 +13,6 @@
     android:text="@string/select_theme"
     app:layout_constraintBottom_toTopOf="@+id/theme_spinner"
     app:layout_constraintEnd_toEndOf="parent"
-
     app:layout_constraintStart_toStartOf="parent"
     />
 
@@ -42,7 +41,7 @@
     app:layout_constraintTop_toTopOf="parent"/>
 
   <EditText
-    android:id="@+id/editText1"
+    android:id="@+id/search_term"
     android:layout_width="201dp"
     android:layout_height="54dp"
     android:ems="10"
@@ -62,7 +61,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/editText1"
+    app:layout_constraintTop_toBottomOf="@id/search_term"
     app:layout_constraintVertical_bias="0.123"/>
 
 
