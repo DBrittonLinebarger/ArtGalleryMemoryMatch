@@ -31,6 +31,7 @@ public interface MetWebService {
     private static final MetWebService INSTANCE;
 
     static {
+      // Following five lines should be removed/commented out for production release.
       HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
       interceptor.setLevel(Level.BODY);
       OkHttpClient client = new OkHttpClient.Builder()
