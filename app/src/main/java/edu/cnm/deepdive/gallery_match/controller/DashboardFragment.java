@@ -59,7 +59,6 @@ public class DashboardFragment extends Fragment {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.container, Game4x4Fragment.newInstance(), null);
         transaction.commit();
-
       }
     });
     return view;

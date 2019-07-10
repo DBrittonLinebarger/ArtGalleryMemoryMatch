@@ -48,21 +48,32 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
       pending.add(
           service.search(searchTerm)
               .subscribeOn(Schedulers.single())
-              .subscribe((result) -> {
-                Theme theme = new Theme();
-                theme.setTitle(searchTerm);
-                long themeId = database.getThemeDao().insert(theme);
-                for (int id : result.getObjectIds()) {
-                  pending.add(
-                      service.get(id)
-                          .subscribeOn(Schedulers.single())
-                          .subscribe((card) -> {
-                            card.setThemeId(themeId);
-                            new Thread(() -> database.getCardDao().insert(card)).start();
-                          })
-                  );
-                }
-              }));
+              .subscribe((result) -> searchResult.setValue(result)
+
+
+                // TODO check to see if enough results, if no notify user/number of objects found
+                  //  TODO add Toast or other popup for this in dashboard frag.
+
+                  // TODO create method for this to happen right here in viewmodel
+              //  Theme theme = new Theme();
+              //  theme.setTitle(searchTerm);
+              //  long themeId = database.getThemeDao().insert(theme);
+
+
+               // TODO select random subset of 8 from results
+                  // TODO create method for this to happen right here in viewmodel
+              //  for (int id : result.getObjectIds()) {
+              //    pending.add(
+              //        service.get(id)
+              //            .subscribeOn(Schedulers.single())
+              //            .subscribe((card) -> {
+              //              card.setThemeId(themeId);
+              //              new Thread(() -> database.getCardDao().insert(card)).start();
+              //            })
+              //    );
+              //  }
+              //}
+              ));
 
 
     } else {
