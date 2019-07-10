@@ -20,5 +20,7 @@ public interface CardDao {
   @Query("SELECT * FROM card WHERE theme_id = :themeId")
   LiveData<List<Card>> getAll(long themeId);
 
+  @Query("SELECT * FROM card WHERE theme_id = :themeId LIMIT 16 ")
+  LiveData<List<Card>> get16 (long themeId);
 
 }
