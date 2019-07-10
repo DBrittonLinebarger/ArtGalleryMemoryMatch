@@ -30,21 +30,51 @@ public class MainActivity extends AppCompatActivity
   public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
 
-        Fragment fragment1 = null;
+
     switch (item.getItemId()) {
       case R.id.navigation_home:
-         fragment1 = DashboardFragment.newInstance();
+
         break;
       case R.id.navigation_dashboard:
-         fragment1 = DashboardFragment.newInstance();
+         switchFragment(DashboardFragment.newInstance(), true, null);
         break;
       case R.id.navigation_notifications:
-         fragment1 = DashboardFragment.newInstance();
+
         break;
     }
-    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-    transaction.replace(R.id.container, fragment1).commit();
+
     return true;
+
+  }
+
+  private void addFragment(Fragment fragment, boolean useStack, String varient) {
+    FragmentManager manager = getSupportFragmentManager();
+    String tag = fragment.getClass().getSimpleName() + ((varient != null) ? varient : "");
+    if (manager.findFragmentByTag(tag) != null) {
+      manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.add(R.id.container, fragment, tag);
+    if (useStack) {
+      transaction.addToBackStack(tag);
+    }
+    transaction.commit();
+
+  }
+
+  private void switchFragment(Fragment fragment, boolean useStack, String varient){
+    FragmentManager manager = getSupportFragmentManager();
+    String tag = fragment.getClass().getSimpleName() + ((varient != null) ? varient : "");
+    if (manager.findFragmentByTag(tag) != null) {
+      manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.replace(R.id.container, fragment, tag);
+    if (useStack) {
+      transaction.addToBackStack(tag);
+    }
+    transaction.commit();
+
 
   }
 
