@@ -47,9 +47,9 @@ public class MainActivity extends AppCompatActivity
 
   }
 
-  private void addFragment(Fragment fragment, boolean useStack, String varient) {
+  private void addFragment(Fragment fragment, boolean useStack, String variant) {
     FragmentManager manager = getSupportFragmentManager();
-    String tag = fragment.getClass().getSimpleName() + ((varient != null) ? varient : "");
+    String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");
     if (manager.findFragmentByTag(tag) != null) {
       manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
@@ -62,12 +62,16 @@ public class MainActivity extends AppCompatActivity
 
   }
 
+
+  // TODO ask if this belongs in Dashboard Fragment?
   private void switchFragment(Fragment fragment, boolean useStack, String varient){
     FragmentManager manager = getSupportFragmentManager();
     String tag = fragment.getClass().getSimpleName() + ((varient != null) ? varient : "");
     if (manager.findFragmentByTag(tag) != null) {
       manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
+
+     //TODO CHECK IF DUPLICATE OF ABOVE CODE
     FragmentTransaction transaction = manager.beginTransaction();
     transaction.replace(R.id.container, fragment, tag);
     if (useStack) {

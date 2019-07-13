@@ -13,6 +13,7 @@ import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.model.pojo.Result;
 import edu.cnm.deepdive.gallery_match.service.MetWebService;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import java.util.Arrays;
@@ -48,6 +49,7 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
       pending.add(
           service.search(searchTerm)
               .subscribeOn(Schedulers.single())
+              .observeOn(AndroidSchedulers.mainThread())
               .subscribe((result) -> searchResult.setValue(result)
 
 

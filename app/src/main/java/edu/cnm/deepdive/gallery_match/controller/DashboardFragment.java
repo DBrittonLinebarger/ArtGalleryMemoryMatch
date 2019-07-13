@@ -1,6 +1,6 @@
 package edu.cnm.deepdive.gallery_match.controller;
 
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog.Builder;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -21,8 +24,9 @@ import edu.cnm.deepdive.gallery_match.viewmodel.ThemeViewModel;
 public class DashboardFragment extends Fragment {
 
   private Button button4x4;
+  private ProgressBar progressIndicator;
 
-  public static DashboardFragment newInstance(){
+  public static DashboardFragment newInstance() {
     return new DashboardFragment();
   }
 
@@ -34,7 +38,7 @@ public class DashboardFragment extends Fragment {
     //Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_dashboard,
         container, false);
-
+    progressIndicator = view.findViewById(R.id.progress_indicator);
     final ThemeViewModel themeViewModel = ViewModelProviders.of(getActivity())
         .get(ThemeViewModel.class);
     themeViewModel.getThemes().observe(this, theme -> {
@@ -45,12 +49,51 @@ public class DashboardFragment extends Fragment {
     });
     Button search = view.findViewById(R.id.button_search);
     EditText searchTerm = view.findViewById(R.id.search_term);
-    search.setOnClickListener((v) ->
-        themeViewModel.getSearchResult(searchTerm.getText().toString().trim()).observe(this,
-            result -> {}));
+    search.setOnClickListener((v) -> {
+      progressIndicator.setVisibility(View.VISIBLE);
+      themeViewModel.getSearchResult(searchTerm.getText().toString().trim())
+          .observe(this, result -> {
+            int[] objectIds = result.getObjectIds();
+
+            progressIndicator.setVisibility(View.GONE);
+            if (objectIds.length < 8) {
+              searchTerm.getText().clear();
+              new Builder(getContext())
+                  .setTitle("Cannot create theme")
+                  .setMessage(
+                      String.format("Search returned %d images; unable to create a theme.", objectIds.length ))
+                  .setPositiveButton("OK", (dialog, which) -> {})
+                  .create()
+                  .show();
+            } else {
+              Builder builder = new Builder(getContext())
+                  .setTitle("Create Theme")
+                  .setNegativeButton("Cancel", (dialog, which) -> {});
+              View alertView = LayoutInflater.from(builder.getContext()).inflate(R.layout.alert_theme, null);
+              TextView themeInfo = alertView.findViewById(R.id.theme_info);
+              EditText themeTitle = alertView.findViewById(R.id.theme_title);
+              themeInfo.setText(String.format("Search returned %d images.", objectIds.length));
+              themeTitle.setText(searchTerm.getText().toString());
+              builder
+                  .setView(alertView)
+                  .setPositiveButton("OK", (dialog, which) -> {
+                    String title = themeTitle.getText().toString().trim();
+                    //  todo invoke view model methods to add theme to database and query images and add to database.
+                    // e.g. themeViewModel.createTheme(title, objectIds)
+                    searchTerm.getText().clear();
+                  })
+                  .create()
+                  .show();
 
 
-    Button button4x4 = (Button)view.findViewById(R.id.button_4x4_game);
+
+            }
+
+          });
+
+    });
+
+    Button button4x4 = (Button) view.findViewById(R.id.button_4x4_game);
 
     button4x4.setOnClickListener(new OnClickListener() {
       @Override
