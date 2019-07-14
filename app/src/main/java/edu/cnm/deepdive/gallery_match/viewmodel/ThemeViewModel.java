@@ -51,33 +51,7 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
               .subscribeOn(Schedulers.single())
               .observeOn(AndroidSchedulers.mainThread())
               .subscribe((result) -> searchResult.setValue(result)
-
-
-                // TODO check to see if enough results, if no notify user/number of objects found
-                  //  TODO add Toast or other popup for this in dashboard frag.
-
-                  // TODO create method for this to happen right here in viewmodel
-              //  Theme theme = new Theme();
-              //  theme.setTitle(searchTerm);
-              //  long themeId = database.getThemeDao().insert(theme);
-
-
-               // TODO select random subset of 8 from results
-                  // TODO create method for this to happen right here in viewmodel
-              //  for (int id : result.getObjectIds()) {
-              //    pending.add(
-              //        service.get(id)
-              //            .subscribeOn(Schedulers.single())
-              //            .subscribe((card) -> {
-              //              card.setThemeId(themeId);
-              //              new Thread(() -> database.getCardDao().insert(card)).start();
-              //            })
-              //    );
-              //  }
-              //}
               ));
-
-
     } else {
       searchResult.setValue(new Result());
 
@@ -85,6 +59,11 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
     return searchResult;
   }
 
+// TODO create method for this to happen right here in viewmodel
+
+  //  Theme theme = new Theme();
+  //  theme.setTitle(searchTerm);
+  //  long themeId = database.getThemeDao().insert(theme);
 
   public void addNewTheme(final Long themeId, final Theme newTheme) {
     new Thread(new Runnable() {
@@ -98,6 +77,24 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
     }).start();
 
   }
+
+
+   //TODO create method for this to happen right here in viewmodel; ?? what is wrong?
+  // public void addCard() {
+  //  for (int id : result.getObjectIds()) {
+  //    pending.add(
+  //        service.get(id)
+  //            .subscribeOn(Schedulers.single())
+  //            .subscribe((card) -> {
+  //              card.setThemeId(themeId);
+  //              new Thread(() -> database.getCardDao().insert(card)).start();
+  //            })
+  //    );
+  //  }
+  //}
+
+  // TODO select random subset of 8 from results
+
 
   @OnLifecycleEvent(Event.ON_STOP)
   public void disposePending() {

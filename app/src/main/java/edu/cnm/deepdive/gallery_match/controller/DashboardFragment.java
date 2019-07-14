@@ -78,7 +78,7 @@ public class DashboardFragment extends Fragment {
                   .setView(alertView)
                   .setPositiveButton("OK", (dialog, which) -> {
                     String title = themeTitle.getText().toString().trim();
-                    //  todo invoke view model methods to add theme to database and query images and add to database.
+                    //  TODO invoke view model methods to add theme to database and query images and add to database.
                     // e.g. themeViewModel.createTheme(title, objectIds)
                     searchTerm.getText().clear();
                   })

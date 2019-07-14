@@ -17,7 +17,7 @@ import java.util.List;
 public class Game4x4Fragment extends Fragment {
 
   private Game game;
-  //private GridView gridView;
+  private GridView gridView;
   //private ListView. gridadapter;
   //private GridView.LayoutManager layoutManager;
 
