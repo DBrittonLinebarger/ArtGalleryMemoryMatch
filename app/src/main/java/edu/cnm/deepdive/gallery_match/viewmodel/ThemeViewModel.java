@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
 import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
+import edu.cnm.deepdive.gallery_match.model.entity.Card;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.model.pojo.Result;
 import edu.cnm.deepdive.gallery_match.service.MetWebService;
@@ -80,7 +81,7 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
 
 
    //TODO create method for this to happen right here in viewmodel; ?? what is wrong?
-  // public void addCard() {
+  // public void addNewCard(final Long cardId, final Card newCard) {
   //  for (int id : result.getObjectIds()) {
   //    pending.add(
   //        service.get(id)
