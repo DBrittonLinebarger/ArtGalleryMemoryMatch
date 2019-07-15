@@ -84,9 +84,6 @@ public class DashboardFragment extends Fragment {
                   })
                   .create()
                   .show();
-
-
-
             }
 
           });

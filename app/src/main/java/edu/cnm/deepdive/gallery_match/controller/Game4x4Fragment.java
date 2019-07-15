@@ -31,7 +31,6 @@ public class Game4x4Fragment extends Fragment {
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-
   }
 
   @Override
@@ -42,10 +41,12 @@ public class Game4x4Fragment extends Fragment {
     View view = inflater.inflate(R.layout.fragment_game4x4,
         container, false);
     cards = new ArrayList<>();
+
+
     return view;
   }
 
 
-
-
 }
+
+
