@@ -47,9 +47,9 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
       pending.add(
           service.search(searchTerm)
               .subscribeOn(Schedulers.single())
-              .observeOn(AndroidSchedulers.mainThread())
+              //.observeOn(AndroidSchedulers.mainThread()) // TODO WHY THIS ON MAINTHREAD?
               .subscribe((result) -> {
-                searchResult.setValue(result);
+                searchResult.postValue(result);
                 long themeId = addNewTheme(searchTerm, database);
                 for (int id : result.getObjectIds()) {
                   addNewCard(id, themeId, service, database);
