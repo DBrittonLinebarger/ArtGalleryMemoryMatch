@@ -7,14 +7,13 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.gallery_match.R;
 import edu.cnm.deepdive.gallery_match.model.entity.Card;
 import edu.cnm.deepdive.gallery_match.model.entity.Game;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game4x4Fragment extends Fragment {
+public class GameFragment extends Fragment {
 
   private Game game;
   private GridView gridView;
@@ -23,8 +22,8 @@ public class Game4x4Fragment extends Fragment {
 
   private List<Card> cards;
 
-  public static Game4x4Fragment newInstance(){
-    return new Game4x4Fragment();
+  public static GameFragment newInstance(){
+    return new GameFragment();
   }
 
   @Override
@@ -38,7 +37,7 @@ public class Game4x4Fragment extends Fragment {
       ViewGroup container,
       Bundle savedInstanceState) {
     //Inflate the layout for this fragment
-    View view = inflater.inflate(R.layout.fragment_game4x4,
+    View view = inflater.inflate(R.layout.fragment_game,
         container, false);
     cards = new ArrayList<>();
 

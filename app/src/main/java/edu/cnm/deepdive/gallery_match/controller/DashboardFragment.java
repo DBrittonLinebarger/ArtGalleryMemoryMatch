@@ -1,6 +1,5 @@
 package edu.cnm.deepdive.gallery_match.controller;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +40,16 @@ public class DashboardFragment extends Fragment {
     progressIndicator = view.findViewById(R.id.progress_indicator);
     final ThemeViewModel themeViewModel = ViewModelProviders.of(getActivity())
         .get(ThemeViewModel.class);
+    themeViewModel.getBusy().observe(this, (busy) -> {
+      if (busy) {
+        progressIndicator.setVisibility(View.VISIBLE);
+
+      } else {
+        progressIndicator.setVisibility(View.GONE);
+
+      }
+
+    });
     themeViewModel.getThemes().observe(this, theme -> {
       final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
       SpinnerAdapter spinnerAdapter = new ArrayAdapter<>(getContext(),
@@ -50,13 +59,13 @@ public class DashboardFragment extends Fragment {
     Button search = view.findViewById(R.id.button_search);
     EditText searchTerm = view.findViewById(R.id.search_term);
     search.setOnClickListener((v) -> {
-      progressIndicator.setVisibility(View.VISIBLE);
+
       themeViewModel.getSearchResult(searchTerm.getText().toString().trim())
           .observe(this, result -> {
             int[] objectIds = result.getObjectIds();
 
-            progressIndicator.setVisibility(View.GONE);
-            if (objectIds.length < 8) {
+
+            if (objectIds.length < ThemeViewModel.MIN_CARDS) {
               searchTerm.getText().clear();
               new Builder(getContext())
                   .setTitle("Cannot create theme")
@@ -78,8 +87,8 @@ public class DashboardFragment extends Fragment {
                   .setView(alertView)
                   .setPositiveButton("OK", (dialog, which) -> {
                     String title = themeTitle.getText().toString().trim();
-                    //  TODO invoke view model methods to add theme to database and query images and add to database.
-                    // e.g. themeViewModel.createTheme(title, objectIds)
+
+                    themeViewModel.createTheme(title, objectIds);
                     searchTerm.getText().clear();
                   })
                   .create()
@@ -97,7 +106,7 @@ public class DashboardFragment extends Fragment {
       public void onClick(View v) {
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.container, Game4x4Fragment.newInstance(), null);
+        transaction.add(R.id.container, GameFragment.newInstance(), null);
         transaction.commit();
       }
     });
