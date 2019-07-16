@@ -18,3 +18,5 @@ public class MemoryMatchApplication extends Application {
     }).start();
   }
 }
+
+//Picasso.setSingletonInstance(new Picasso.Builder(this).build());

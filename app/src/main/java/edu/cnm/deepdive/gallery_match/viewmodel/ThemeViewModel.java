@@ -66,7 +66,7 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
     return searchResult;
   }
 
-  
+
 
   public void createTheme(String themeName, int[] objectIds) {
     MetWebService service = MetWebService.getInstance();
