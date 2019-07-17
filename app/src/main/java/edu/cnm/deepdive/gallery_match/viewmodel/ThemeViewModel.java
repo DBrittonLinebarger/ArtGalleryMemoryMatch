@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.gallery_match.viewmodel;
 
 import android.app.Application;
+import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Lifecycle.Event;
@@ -32,8 +33,15 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
   private MutableLiveData<Result> searchResult;
   private CompositeDisposable pending = new CompositeDisposable();
 
+
   public ThemeViewModel(@NonNull Application application) {
     super(application);
+
+  }
+
+  public ThemeViewModel getInstance() {
+    return this;
+
   }
 
   public LiveData<List<Theme>> getThemes() {
@@ -106,6 +114,11 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
   public LiveData<List<Card>> getCards(Theme theme) {
     MemoryMatchDatabase databse = MemoryMatchDatabase.getInstance(getApplication());
     return databse.getCardDao().get8(theme.getId());
+  }
+
+  public Theme getTheme(String themeTitle) {
+    MemoryMatchDatabase databse = MemoryMatchDatabase.getInstance(getApplication());
+    return databse.getThemeDao().selectThemeByTitle(themeTitle);
   }
 
   @OnLifecycleEvent(Event.ON_STOP)

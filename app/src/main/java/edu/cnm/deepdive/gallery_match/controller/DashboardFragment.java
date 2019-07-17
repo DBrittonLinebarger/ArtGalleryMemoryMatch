@@ -24,6 +24,7 @@ public class DashboardFragment extends Fragment {
 
   private Button button4x4;
   private ProgressBar progressIndicator;
+  private Spinner themeSpinner;
 
   public static DashboardFragment newInstance() {
     return new DashboardFragment();
@@ -51,7 +52,8 @@ public class DashboardFragment extends Fragment {
 
     });
     themeViewModel.getThemes().observe(this, theme -> {
-      final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
+      //final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
+       themeSpinner = view.findViewById(R.id.theme_spinner);
       SpinnerAdapter spinnerAdapter = new ArrayAdapter<>(getContext(),
           android.R.layout.simple_spinner_item, theme);
       themeSpinner.setAdapter(spinnerAdapter);
@@ -106,7 +108,9 @@ public class DashboardFragment extends Fragment {
       public void onClick(View v) {
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.container, GameFragment.newInstance(), null);
+        transaction.add(R.id.container, GameFragment.newInstance(themeViewModel.
+            getTheme(themeSpinner.getSelectedItem().toString())), null);
+        //TODO Get text from spinner DONE
         transaction.commit();
       }
     });
