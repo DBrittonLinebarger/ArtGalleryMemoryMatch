@@ -8,8 +8,10 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
+import edu.cnm.deepdive.gallery_match.MainActivity;
 import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
+import edu.cnm.deepdive.gallery_match.model.entity.Card;
 import edu.cnm.deepdive.gallery_match.model.pojo.Result;
 import edu.cnm.deepdive.gallery_match.service.MetWebService;
 import io.reactivex.disposables.CompositeDisposable;
@@ -99,6 +101,11 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
       }
     }).start();
 
+  }
+
+  public LiveData<List<Card>> getCards(Theme theme) {
+    MemoryMatchDatabase databse = MemoryMatchDatabase.getInstance(getApplication());
+    return databse.getCardDao().get8(theme.getId());
   }
 
   @OnLifecycleEvent(Event.ON_STOP)
