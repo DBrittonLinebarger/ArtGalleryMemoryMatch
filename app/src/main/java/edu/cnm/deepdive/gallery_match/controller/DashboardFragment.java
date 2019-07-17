@@ -40,6 +40,7 @@ public class DashboardFragment extends Fragment {
     View view = inflater.inflate(R.layout.fragment_dashboard,
         container, false);
     progressIndicator = view.findViewById(R.id.progress_indicator);
+    themeSpinner = view.findViewById(R.id.theme_spinner);
     final ThemeViewModel themeViewModel = ViewModelProviders.of(getActivity())
         .get(ThemeViewModel.class);
     themeViewModel.getBusy().observe(this, (busy) -> {
@@ -53,7 +54,6 @@ public class DashboardFragment extends Fragment {
 
     });
     themeViewModel.getThemes().observe(this, themes -> {
-      final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
       // themeSpinner = view.findViewById(R.id.theme_spinner);//**
       ArrayAdapter<Theme> spinnerAdapter = new ArrayAdapter<>(getContext(),
           android.R.layout.simple_spinner_item, themes);

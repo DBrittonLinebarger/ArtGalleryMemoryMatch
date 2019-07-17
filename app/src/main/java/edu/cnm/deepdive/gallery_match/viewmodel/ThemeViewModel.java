@@ -110,7 +110,7 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
 
   public LiveData<List<Card>> getCards(Theme theme) {//***
     MemoryMatchDatabase database = MemoryMatchDatabase.getInstance(getApplication());
-    return database.getCardDao().get8(theme.getId());
+    return database.getCardDao().get(theme.getId());
   }
 
   public LiveData<Theme> getTheme(String themeTitle) { //***
