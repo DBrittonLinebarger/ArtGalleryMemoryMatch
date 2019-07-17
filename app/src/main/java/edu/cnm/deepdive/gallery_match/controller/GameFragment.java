@@ -60,3 +60,4 @@ public class GameFragment extends Fragment {
 //folloow tutorial for  creating gridview /attach adapter in oncreate
 //in adapter class give each card layout pass al ist of cards to adapter
 //Gridview
+//get refer to view model
