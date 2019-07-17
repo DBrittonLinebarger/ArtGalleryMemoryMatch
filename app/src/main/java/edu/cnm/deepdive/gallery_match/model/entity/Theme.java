@@ -7,9 +7,9 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Theme implements Parcelable {
+public class Theme implements Parcelable  { //***
 
-  public static final Parcelable.Creator<Theme> CREATOR
+  public static final Parcelable.Creator<Theme> CREATOR //**
       = new Parcelable.Creator<Theme>() {
     public Theme createFromParcel(Parcel in) {
       return new Theme(in);
@@ -28,7 +28,7 @@ public class Theme implements Parcelable {
   public Theme() {
   }
 
-  private Theme(Parcel in) {
+  private Theme(Parcel in) { //***
     in.readString();
     in.readLong();
 
@@ -64,7 +64,7 @@ public class Theme implements Parcelable {
   }
 
   @Override
-  public void writeToParcel(Parcel dest, int flags) {
+  public void writeToParcel(Parcel dest, int flags) { //***
     dest.writeString(title);
     dest.writeLong(id);
 

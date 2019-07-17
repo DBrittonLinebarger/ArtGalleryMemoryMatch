@@ -18,8 +18,12 @@ public interface ThemeDao {
   @Query("SELECT * FROM theme")
   LiveData<List<Theme>> getAll();
 
-  //@Query("SELECT * FROM theme WHERE title = 'stringtitle'" )
-  //Theme selectThemeByTitle(String stringtitle);
+  @Query("SELECT * FROM theme WHERE title = :stringtitle" )
+  LiveData<Theme> selectThemeByTitle(String stringtitle);
+
+
+
+
 
   @Delete
   int delete(Theme... themes);

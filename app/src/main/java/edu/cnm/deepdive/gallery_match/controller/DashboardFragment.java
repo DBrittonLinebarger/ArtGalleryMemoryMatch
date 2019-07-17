@@ -18,13 +18,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
 import edu.cnm.deepdive.gallery_match.R;
+import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.viewmodel.ThemeViewModel;
 
 public class DashboardFragment extends Fragment {
 
   private Button button4x4;
   private ProgressBar progressIndicator;
-  private Spinner themeSpinner;
+  private Spinner themeSpinner;//**
 
   public static DashboardFragment newInstance() {
     return new DashboardFragment();
@@ -51,11 +52,11 @@ public class DashboardFragment extends Fragment {
       }
 
     });
-    themeViewModel.getThemes().observe(this, theme -> {
-      //final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
-       themeSpinner = view.findViewById(R.id.theme_spinner);
-      SpinnerAdapter spinnerAdapter = new ArrayAdapter<>(getContext(),
-          android.R.layout.simple_spinner_item, theme);
+    themeViewModel.getThemes().observe(this, themes -> {
+      final Spinner themeSpinner = view.findViewById(R.id.theme_spinner);
+      // themeSpinner = view.findViewById(R.id.theme_spinner);//**
+      ArrayAdapter<Theme> spinnerAdapter = new ArrayAdapter<>(getContext(),
+          android.R.layout.simple_spinner_item, themes);
       themeSpinner.setAdapter(spinnerAdapter);
     });
     Button search = view.findViewById(R.id.button_search);
@@ -106,11 +107,11 @@ public class DashboardFragment extends Fragment {
     button4x4.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
+        Theme theme = (Theme) themeSpinner.getSelectedItem();
+        Fragment fragment = GameFragment.newInstance(theme);
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.container, GameFragment.newInstance(themeViewModel.
-            getTheme(themeSpinner.getSelectedItem().toString())), null);
-        //TODO Get text from spinner DONE
+        transaction.add(R.id.container, fragment);
         transaction.commit();
       }
     });

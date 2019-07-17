@@ -1,7 +1,6 @@
 package edu.cnm.deepdive.gallery_match.viewmodel;
 
 import android.app.Application;
-import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Lifecycle.Event;
@@ -9,10 +8,9 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
-import edu.cnm.deepdive.gallery_match.MainActivity;
 import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
-import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.model.entity.Card;
+import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.model.pojo.Result;
 import edu.cnm.deepdive.gallery_match.service.MetWebService;
 import io.reactivex.disposables.CompositeDisposable;
@@ -39,7 +37,7 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
 
   }
 
-  public ThemeViewModel getInstance() {
+  public ThemeViewModel getInstance() { //***
     return this;
 
   }
@@ -77,7 +75,6 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
   }
 
 
-
   public void createTheme(String themeName, int[] objectIds) {
     MetWebService service = MetWebService.getInstance();
     MemoryMatchDatabase database = MemoryMatchDatabase.getInstance(getApplication());
@@ -111,14 +108,14 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
 
   }
 
-  public LiveData<List<Card>> getCards(Theme theme) {
-    MemoryMatchDatabase databse = MemoryMatchDatabase.getInstance(getApplication());
-    return databse.getCardDao().get8(theme.getId());
+  public LiveData<List<Card>> getCards(Theme theme) {//***
+    MemoryMatchDatabase database = MemoryMatchDatabase.getInstance(getApplication());
+    return database.getCardDao().get8(theme.getId());
   }
 
-  public Theme getTheme(String themeTitle) {
-    MemoryMatchDatabase databse = MemoryMatchDatabase.getInstance(getApplication());
-    return databse.getThemeDao().selectThemeByTitle(themeTitle);
+  public LiveData<Theme> getTheme(String themeTitle) { //***
+    MemoryMatchDatabase database = MemoryMatchDatabase.getInstance(getApplication());
+    return database.getThemeDao().selectThemeByTitle(themeTitle);
   }
 
   @OnLifecycleEvent(Event.ON_STOP)

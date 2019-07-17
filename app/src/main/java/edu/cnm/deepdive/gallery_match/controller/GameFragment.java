@@ -5,29 +5,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.gallery_match.R;
 import edu.cnm.deepdive.gallery_match.model.entity.Card;
 import edu.cnm.deepdive.gallery_match.model.entity.Game;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
+import edu.cnm.deepdive.gallery_match.view.CardAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameFragment extends Fragment {
 
   private Game game;
-  private GridView gridView;
-  private Theme theme;
-  //private ListView. gridadapter;
-  //private GridView.LayoutManager layoutManager;
+  private RecyclerView gameGridview;
+  private Theme theme; //***
+
 
   private List<Card> cards;
-  private static final String KEY = "key";
+  private static final String KEY = "key"; //***
 
 
 
-  public static GameFragment newInstance(Theme theme){
+  public static GameFragment newInstance(Theme theme){ //***
     GameFragment fragment = new GameFragment();
     Bundle bundle = new Bundle();
     bundle.putParcelable(KEY, theme);
@@ -36,12 +37,7 @@ public class GameFragment extends Fragment {
     return fragment;
   }
 
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    theme = (Theme)getArguments().getParcelable(KEY);
 
-  }
 
   @Override
   public View onCreateView(LayoutInflater inflater,
@@ -51,13 +47,18 @@ public class GameFragment extends Fragment {
     View view = inflater.inflate(R.layout.fragment_game,
         container, false);
     cards = new ArrayList<>();
+    gameGridview = view.findViewById(R.id.game_gridview);
+    gameGridview.setLayoutManager(new GridLayoutManager(getContext(), 4));
+    CardAdapter cardAdapter = new CardAdapter(getContext(), cards);
+    gameGridview.setAdapter(cardAdapter);
+    theme = (Theme)getArguments().getParcelable(KEY);//***
     return view;
   }
 
 
 }
 
-//folloow tutorial for  creating gridview /attach adapter in oncreate
-//in adapter class give each card layout pass al ist of cards to adapter
+//TODO folloow tutorial for  creating gridview /attach adapter in oncreate
+//in adapter class give each card a layout, pass a list of cards to adapter
 //Gridview
-//get refer to view model
+//get reference to view model
