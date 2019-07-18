@@ -13,6 +13,7 @@ import edu.cnm.deepdive.gallery_match.model.pojo.GameTile;
 import edu.cnm.deepdive.gallery_match.view.CardAdapter.CardHolder;
 import java.util.List;
 
+
 public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
 
   private final Context context;
