@@ -73,16 +73,5 @@ public class GameFragment extends Fragment implements OnTileClickListener {
   }
 }
 
-//TODO replace the code below with code that creates an instance of gamelogic class; pass the list of cards to
-// the constructor.
-// Game logic class will create a list of game tiles. game logic also needs a getter
-// to get list of gametiles, so we can pass to the adapter
 
-
-//List<GameTile> tiles = new ArrayList<>();
-//for (Card card : cards) {
-//  GameTile tile = new GameTile(card);
-//  tile.setFaceUp(true);
-//  tiles.add(tile);
-//}apter class give each card a layout, pass a list of cards to adapter
 
