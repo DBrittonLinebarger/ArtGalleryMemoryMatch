@@ -29,7 +29,7 @@ public class Card {
   @ColumnInfo(name = "object_date", index = true)
   private  String objectDate;
 
-  @SerializedName("primaryImage")
+  @SerializedName("primaryImageSmall")
   private String url; // TODO INVESTIGATE CONVERTERS
 
   public long getId() {

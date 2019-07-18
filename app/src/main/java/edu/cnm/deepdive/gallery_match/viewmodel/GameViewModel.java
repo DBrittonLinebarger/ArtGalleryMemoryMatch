@@ -5,19 +5,21 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Lifecycle.Event;
 import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
 import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
 import edu.cnm.deepdive.gallery_match.model.entity.Card;
+import edu.cnm.deepdive.gallery_match.model.entity.Theme;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
+import java.util.List;
 
 public class GameViewModel extends AndroidViewModel implements LifecycleObserver {
 
-  private static final int GAME_DECK = 8;
+
   private MutableLiveData<Boolean> busy;
-  private MutableLiveData<Deck> deck = new MutableLiveData<Deck>();
-  private MutableLiveData<List<Card>> cards = new MutableLiveData<List<Card>>();
   private CompositeDisposable pending = new CompositeDisposable();
 
   public GameViewModel(@NonNull Application application) {
@@ -25,12 +27,9 @@ public class GameViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
 
-  public MutableLiveData<Deck> getDeck() {
-    return deck;
-  }
+  public LiveData<List<Card>> getCards(Theme theme) {
 
-  public MutableLiveData<List<Card>> getCards() {
-    return cards;
+    return MemoryMatchDatabase.getInstance(getApplication()).getCardDao().getAll(theme.getId());
   }
 
   @OnLifecycleEvent(Event.ON_STOP)
@@ -43,29 +42,9 @@ public class GameViewModel extends AndroidViewModel implements LifecycleObserver
 
   }
 
-  //private void createDeck() {
-  //  pending.add(
-  //      MemoryMatchDatabase.getInstance().newDeck(GAME_DECK)
-  //          .subscribeOn(Schedulers.io())
-  //          .observeOn(AndroidSchedulers.mainThread())
-  //          .subscribe((deck) -> {
-  //            this.deck.setValue(deck);
-  //          })
-  //  );
-  //}
 
-  //public LiveData<List<Card>> getCards() {
-  //  if (cards== null) {
-  //    cards=
-  //    MemoryMatchDatabase.getInstance(getApplication()).getCardDao().getAll();
-  //  }
-  //  return cards;
-  //}
 
-  //public LiveData<List<Card>> getCards(Card card) {
-  //  MemoryMatchDatabase database = MemoryMatchDatabase.getInstance(getApplication());
-  //  return database.getCardDao().get(card.getId());
-  //}
+
 
 
 

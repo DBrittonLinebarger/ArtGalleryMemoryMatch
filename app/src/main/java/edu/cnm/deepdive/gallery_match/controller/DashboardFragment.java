@@ -53,11 +53,15 @@ public class DashboardFragment extends Fragment {
       }
 
     });
+
+    Button button4x4 = (Button) view.findViewById(R.id.button_4x4_game);
     themeViewModel.getThemes().observe(this, themes -> {
       // themeSpinner = view.findViewById(R.id.theme_spinner);//**
       ArrayAdapter<Theme> spinnerAdapter = new ArrayAdapter<>(getContext(),
           android.R.layout.simple_spinner_item, themes);
       themeSpinner.setAdapter(spinnerAdapter);
+      button4x4.setEnabled(!themes.isEmpty());
+
     });
     Button search = view.findViewById(R.id.button_search);
     EditText searchTerm = view.findViewById(R.id.search_term);
@@ -102,7 +106,7 @@ public class DashboardFragment extends Fragment {
 
     });
 
-    Button button4x4 = (Button) view.findViewById(R.id.button_4x4_game);
+
 
     button4x4.setOnClickListener(new OnClickListener() {
       @Override

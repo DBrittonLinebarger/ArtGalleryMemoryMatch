@@ -9,18 +9,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import edu.cnm.deepdive.gallery_match.R;
-import edu.cnm.deepdive.gallery_match.model.entity.Card;
+import edu.cnm.deepdive.gallery_match.model.pojo.GameTile;
 import edu.cnm.deepdive.gallery_match.view.CardAdapter.CardHolder;
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
 
-  private Context context;
-  private List<Card> cards;
+  private final Context context;
+  private final List<GameTile> tiles;
+  private final OnTileClickListener listener;
 
-  public CardAdapter(Context context, List<Card> cards) {
+
+  public CardAdapter(Context context, List<GameTile> tiles,
+      OnTileClickListener listener) {
     this.context = context;
-    this.cards = cards;
+    this.tiles = tiles;
+    this.listener = listener;
   }
 
   @NonNull
@@ -34,27 +38,39 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
 
   @Override
   public void onBindViewHolder(@NonNull CardHolder holder, int position) {
-    holder.bind(cards.get(position));
+    holder.bind(tiles.get(position));
   }
 
   @Override
   public int getItemCount() {
-    return cards.size();
+    return tiles.size();
   }
 
 
   class CardHolder extends RecyclerView.ViewHolder {
 
     private ImageView itemView;
+    private GameTile gameTile;
 
     private CardHolder(@NonNull View itemView) {
       super(itemView);
       this.itemView = (ImageView) itemView;
     }
 
-    private void bind(Card card) {
-      Picasso.get().load(card.getUrl().toString()).into(itemView);
+    private void bind(GameTile gameTile) {
+      this.gameTile = gameTile;
+      if (gameTile.isFaceUp()) {
+        Picasso.get().load(gameTile.getCard().getUrl().toString()).into(itemView);
+      } else {
+        itemView.setImageDrawable(context.getDrawable(R.drawable.ic_help));
+      }
+      itemView.setOnClickListener((view) -> listener.click(gameTile, getAdapterPosition()));
     }
 
+  }
+
+  public interface OnTileClickListener {
+
+    void click(GameTile tile, int position);
   }
 }
