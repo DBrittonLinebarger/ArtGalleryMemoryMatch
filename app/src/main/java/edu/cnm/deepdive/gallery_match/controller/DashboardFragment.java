@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog.Builder;
 import androidx.fragment.app.Fragment;
@@ -55,7 +54,7 @@ public class DashboardFragment extends Fragment {
 
     });
 
-    ImageButton button4x4 =  view.findViewById(R.id.button_4x4_game);
+    ImageButton button4x4 =  view.findViewById(R.id.play);
     themeViewModel.getThemes().observe(this, themes -> {
       // themeSpinner = view.findViewById(R.id.theme_spinner);//**
       ArrayAdapter<Theme> spinnerAdapter = new ArrayAdapter<>(getContext(),

@@ -9,57 +9,58 @@
 
   <TextView
     android:id="@+id/select_theme"
-    android:layout_width="0dp"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
     android:text="@string/select_theme"
     android:textSize="18dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="@id/theme_spinner"
-    app:layout_constraintEnd_toStartOf="@id/theme_spinner"
-    />
+    app:layout_constraintStart_toStartOf="@+id/theme_spinner"
+    app:layout_constraintBottom_toTopOf="@+id/theme_spinner"/>
 
   <Spinner
     android:id="@+id/theme_spinner"
-    android:layout_width="wrap_content"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:layout_marginStart="8dp"
-    app:layout_constraintStart_toEndOf="@id/select_theme"
-    app:layout_constraintEnd_toStartOf="@id/button_4x4_game"
-    app:layout_constraintBottom_toBottomOf="@id/select_theme"
-
-    />
+    app:layout_constraintStart_toStartOf="@id/search_layout"
+    app:layout_constraintEnd_toEndOf="@id/search_layout"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toTopOf="@id/search_layout"
+    app:layout_constraintVertical_chainStyle="packed"/>
 
   <ImageButton
-    android:id="@+id/button_4x4_game"
+    android:id="@+id/play"
     android:layout_width="wrap_content"
-    android:layout_height="64dp"
-    android:text="@string/play_game"
+    android:layout_height="wrap_content"
     android:enabled="false"
-    app:layout_constraintStart_toEndOf="@id/theme_spinner"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="@id/theme_spinner"
-    android:src="@drawable/ic_play_arrow"
-
-    />
-
-  <com.google.android.material.textfield.TextInputEditText
-    android:id="@+id/search_term"
-    android:layout_width="0dp"
-    android:layout_height="54dp"
-    android:ems="10"
-    android:hint="@string/keyword_hint"
-    android:inputType="text"
     android:layout_marginStart="8dp"
-    app:layout_constraintLeft_toLeftOf="@id/select_theme"
-    app:layout_constraintTop_toTopOf="@id/select_theme"
+    app:layout_constraintStart_toEndOf="@id/theme_spinner"
+    app:layout_constraintTop_toTopOf="@id/theme_spinner"
+    app:layout_constraintBottom_toBottomOf="@id/theme_spinner"
+    android:src="@drawable/ic_play_arrow"/>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/search_layout"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    app:hintEnabled="true"
+    app:hintAnimationEnabled="true"
+    app:layout_constraintTop_toBottomOf="@id/theme_spinner"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintRight_toLeftOf="@id/button_search"
-    app:layout_constraintHorizontal_chainStyle="packed"
+    app:layout_constraintEnd_toStartOf="@+id/button_search"
     app:layout_constraintBottom_toBottomOf="parent"
-    />
+    app:layout_constraintHorizontal_chainStyle="packed"
+    app:layout_constraintWidth_percent="0.4"
+    app:layout_constraintWidth_min="100dp"
+    app:layout_constraintWidth_max="200dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/search_term"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="@string/keyword_hint"
+      android:inputType="text"/>
+
+  </com.google.android.material.textfield.TextInputLayout>
 
   <ImageButton
     android:id="@+id/button_search"
@@ -67,11 +68,11 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="8dp"
     android:text="@string/search"
-    app:layout_constraintBottom_toBottomOf="@id/search_term"
-    app:layout_constraintTop_toTopOf="@id/search_term"
-    app:layout_constraintStart_toEndOf="@id/search_term"
-    android:src="@drawable/ic_search"
-    />
+    app:layout_constraintBottom_toBottomOf="@id/search_layout"
+    app:layout_constraintTop_toTopOf="@id/search_layout"
+    app:layout_constraintStart_toEndOf="@id/search_layout"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:src="@drawable/ic_search"/>
 
 <ProgressBar
   android:id="@+id/progress_indicator"
