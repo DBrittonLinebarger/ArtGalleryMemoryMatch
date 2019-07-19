@@ -22,6 +22,8 @@ public class GameLogic {
   private List<GameTile> current = new ArrayList<>();
   private List<GameTile> unsolved = new ArrayList<>();
   private int turn;
+  private int matchCount = 0;
+  private int turnCount = 0;
 
 
   public GameLogic(List<Card> cards) {
@@ -41,6 +43,7 @@ public class GameLogic {
 
   public boolean clickTile(GameTile tile) {
     boolean update = false;
+    turnCount++;
 
     if (!solved.contains(tile)) {
       if (!current.contains(tile) && current.size() < 2) {
@@ -52,6 +55,8 @@ public class GameLogic {
           unsolved.removeAll(current);
           current.clear();
           turn++;
+          matchCount++;
+
         }
         else if (current.size() == 2) {
           //TODO mark cards as not a match
@@ -80,6 +85,14 @@ public class GameLogic {
 
   public int getTurn() {
     return turn;
+  }
+
+  public int getMatchCount() {
+    return matchCount;
+  }
+
+  public int getTurnCount() {
+    return turnCount;
   }
 }
 

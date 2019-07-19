@@ -8,6 +8,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
+import edu.cnm.deepdive.gallery_match.model.GameLogic;
 import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
 import edu.cnm.deepdive.gallery_match.model.entity.Card;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
@@ -42,6 +43,15 @@ public class GameViewModel extends AndroidViewModel implements LifecycleObserver
 
   }
 
+  public int getMatchCount(GameLogic gameLogic) {
+    return gameLogic.getMatchCount();
+
+  }
+
+  public int getTurnCount(GameLogic gameLogic) {
+    return gameLogic.getTurnCount();
+
+  }
 
 
 

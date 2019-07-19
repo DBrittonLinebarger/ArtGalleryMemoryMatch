@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -29,6 +30,10 @@ public class GameFragment extends Fragment implements OnTileClickListener {
   private GameViewModel gameViewModel;
   private GameLogic gameLogic;
   private CardAdapter cardAdapter;
+  private int matchCount = 0;
+  private int turnCount = 0;
+  private TextView matchCountView;
+  private TextView turnCountView;
 
 
   public static GameFragment newInstance(Theme theme) { //***
@@ -52,6 +57,8 @@ public class GameFragment extends Fragment implements OnTileClickListener {
     gameGridview = view.findViewById(R.id.game_gridview);
     gameGridview.setLayoutManager(new GridLayoutManager(getContext(), 4));
     gameViewModel = ViewModelProviders.of(this).get(GameViewModel.class);
+    matchCountView = view.findViewById(R.id.matchCount);
+    turnCountView = view.findViewById(R.id.turnCount);
 
     gameViewModel.getCards(theme).observe(this, (cards) -> {
       gameLogic = new GameLogic(cards);
@@ -68,9 +75,18 @@ public class GameFragment extends Fragment implements OnTileClickListener {
   public void click(GameTile tile, int position) {
     if (gameLogic.clickTile(tile)) {
       cardAdapter.notifyDataSetChanged();
+      turnCount = gameViewModel.getTurnCount(gameLogic);
+      turnCountView.setText(Integer.toString(turnCount));
+      if (gameViewModel.getMatchCount(gameLogic) > matchCount) {
+        matchCount = gameViewModel.getMatchCount(gameLogic);
+        matchCountView.setText(Integer.toString(matchCount));
+      }
+
     }
 
   }
+
+
 }
 
 
