@@ -8,6 +8,7 @@
 * [ERD](docs/erd.md)
 * [Milestone 2](docs/milestone-2.md)
 * [Dashboard Fragment w/Spinner](docs/dashboard-fragment.PNG)
+* [Data Model](docs/data-model.md)
 
 
 ## Art Gallery Memory Match Description
