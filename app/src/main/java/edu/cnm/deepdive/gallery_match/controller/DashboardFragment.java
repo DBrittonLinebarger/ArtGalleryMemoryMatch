@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
@@ -54,7 +55,7 @@ public class DashboardFragment extends Fragment {
 
     });
 
-    Button button4x4 = (Button) view.findViewById(R.id.button_4x4_game);
+    ImageButton button4x4 =  view.findViewById(R.id.button_4x4_game);
     themeViewModel.getThemes().observe(this, themes -> {
       // themeSpinner = view.findViewById(R.id.theme_spinner);//**
       ArrayAdapter<Theme> spinnerAdapter = new ArrayAdapter<>(getContext(),
@@ -63,7 +64,7 @@ public class DashboardFragment extends Fragment {
       button4x4.setEnabled(!themes.isEmpty());
 
     });
-    Button search = view.findViewById(R.id.button_search);
+    ImageButton search = view.findViewById(R.id.button_search);
     EditText searchTerm = view.findViewById(R.id.search_term);
     search.setOnClickListener((v) -> {
 
