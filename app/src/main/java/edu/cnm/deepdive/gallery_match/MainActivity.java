@@ -11,9 +11,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import edu.cnm.deepdive.gallery_match.controller.DashboardFragment;
 
+/** This class represents a main Android activity
+ * @author Denelle Britton Linebarger
+ */
 public class MainActivity extends AppCompatActivity
     implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+  /** Represents the text of the message on the activity
+   */
   private TextView mTextMessage;
 
   @Override
@@ -28,8 +33,6 @@ public class MainActivity extends AppCompatActivity
 
   @Override
   public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-
 
     switch (item.getItemId()) {
       case R.id.navigation_home:
@@ -58,20 +61,21 @@ public class MainActivity extends AppCompatActivity
     if (useStack) {
       transaction.addToBackStack(tag);
     }
-    transaction.commit();
+    else {
+      transaction.commit();
+    }
 
   }
 
-
   // TODO ask if this belongs in Dashboard Fragment?
-  private void switchFragment(Fragment fragment, boolean useStack, String varient){
+  private void switchFragment(Fragment fragment, boolean useStack, String variant){
     FragmentManager manager = getSupportFragmentManager();
-    String tag = fragment.getClass().getSimpleName() + ((varient != null) ? varient : "");
+    String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");
     if (manager.findFragmentByTag(tag) != null) {
       manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 
-     //TODO CHECK IF DUPLICATE OF ABOVE CODE
+    //TODO CHECK IF DUPLICATE OF ABOVE CODE
     FragmentTransaction transaction = manager.beginTransaction();
     transaction.replace(R.id.container, fragment, tag);
     if (useStack) {
@@ -79,10 +83,6 @@ public class MainActivity extends AppCompatActivity
     }
     transaction.commit();
 
-
   }
-
-
-
 
 }

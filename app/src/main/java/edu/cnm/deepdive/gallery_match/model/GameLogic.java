@@ -56,6 +56,9 @@ public class GameLogic {
           current.clear();
           turn++;
           matchCount++;
+          if (unsolved.isEmpty()) {
+            //TODO Invoke method to save in high scores.
+          }
 
         }
         else if (current.size() == 2) {

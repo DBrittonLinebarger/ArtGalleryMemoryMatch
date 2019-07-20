@@ -3,10 +3,13 @@ package edu.cnm.deepdive.gallery_match.model.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
+import java.util.Objects;
 
-@Entity
+@Entity(indices = @Index(value = "title", unique = true))
 public class Theme implements Parcelable  { //***
 
   public static final Parcelable.Creator<Theme> CREATOR //**
@@ -67,8 +70,16 @@ public class Theme implements Parcelable  { //***
   public void writeToParcel(Parcel dest, int flags) { //***
     dest.writeString(title);
     dest.writeLong(id);
+  }
 
+  @Override
+  public int hashCode() {
+    return title.hashCode();
+  }
 
+  @Override
+  public boolean equals(@Nullable Object obj) {
+    return Objects.equals(title, ((obj == null) ? null : ((Theme) obj).title));
   }
 }
 
