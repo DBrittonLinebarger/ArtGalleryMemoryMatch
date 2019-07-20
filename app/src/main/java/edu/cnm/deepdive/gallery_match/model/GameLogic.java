@@ -1,22 +1,20 @@
 package edu.cnm.deepdive.gallery_match.model;
 
-import android.content.Context;
-import android.view.View;
-import androidx.lifecycle.LiveData;
-import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
 import edu.cnm.deepdive.gallery_match.model.entity.Card;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.model.pojo.GameTile;
+import edu.cnm.deepdive.gallery_match.model.pojo.Score;
+import edu.cnm.deepdive.gallery_match.service.HighScoreService;
 import edu.cnm.deepdive.gallery_match.viewmodel.ThemeViewModel;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 public class GameLogic {
 
-  private  List<Card> cards;
+  private final Theme theme;
+  private List<Card> cards;
   private List<GameTile> tiles = new ArrayList<>();
   private List<GameTile> solved = new ArrayList<>();
   private List<GameTile> current = new ArrayList<>();
@@ -26,7 +24,9 @@ public class GameLogic {
   private int turnCount = 0;
 
 
-  public GameLogic(List<Card> cards) {
+
+  public GameLogic(Theme theme, List<Card> cards) {
+    this.theme = theme;
     this.cards = new ArrayList<>(cards);
     Collections.shuffle(this.cards);
     for (Card card : this.cards.subList(0, ThemeViewModel.MIN_CARDS)) {
@@ -35,6 +35,7 @@ public class GameLogic {
       // TODO Can we tell Picasso to cache the image at card.getUrl()?
     }
     Collections.shuffle(tiles);
+    unsolved = new ArrayList<>(tiles);
   }
 
   public List<GameTile> getTiles() {
@@ -57,7 +58,11 @@ public class GameLogic {
           turn++;
           matchCount++;
           if (unsolved.isEmpty()) {
-            //TODO Invoke method to save in high scores.
+            Score score = new Score();
+            score.setTheme(theme);
+            score.setDate(new Date());
+            score.setTurns(turn);
+            HighScoreService.getInstance().add(score);
           }
 
         }

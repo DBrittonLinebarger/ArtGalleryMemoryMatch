@@ -61,7 +61,7 @@ public class GameFragment extends Fragment implements OnTileClickListener {
     turnCountView = view.findViewById(R.id.turnCount);
 
     gameViewModel.getCards(theme).observe(this, (cards) -> {
-      gameLogic = new GameLogic(cards);
+      gameLogic = new GameLogic(theme, cards);
 
       cardAdapter = new CardAdapter(getContext(), gameLogic.getTiles(), this);
       gameGridview.setAdapter(cardAdapter);

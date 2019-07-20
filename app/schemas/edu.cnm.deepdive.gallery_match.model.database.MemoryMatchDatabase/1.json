@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d09d9af378bdc7904ddaee86ffd5acac",
+    "identityHash": "0db5a1c899f007ea8118d4d788ce6223",
     "entities": [
       {
         "tableName": "Card",
@@ -266,14 +266,23 @@
           ],
           "autoGenerate": true
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_Theme_title",
+            "unique": true,
+            "columnNames": [
+              "title"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Theme_title` ON `${TABLE_NAME}` (`title`)"
+          }
+        ],
         "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd09d9af378bdc7904ddaee86ffd5acac')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0db5a1c899f007ea8118d4d788ce6223')"
     ]
   }
 }

@@ -18,11 +18,6 @@ public class MemoryMatchApplication extends Application {
     HighScoreService.setContext(this);
     Picasso.setSingletonInstance(new Picasso.Builder(this).build());
     Stetho.initializeWithDefaults(this);
-    new Thread(() -> {
-      //Theme theme = new Theme();
-      //theme.setTitle("Testing");
-      MemoryMatchDatabase.getInstance(this).getThemeDao().delete();
-    }).start();
   }
 }
 

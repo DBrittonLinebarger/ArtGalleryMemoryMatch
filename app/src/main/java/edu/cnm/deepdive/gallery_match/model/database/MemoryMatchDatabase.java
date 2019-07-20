@@ -42,7 +42,7 @@ public abstract class MemoryMatchDatabase extends RoomDatabase {
                   @Override
                   public void onCreate(@NonNull SupportSQLiteDatabase db) {
                     super.onCreate(db);
-                    new PopulateDbTask(INSTANCE).execute();
+                    //new PopulateDbTask(INSTANCE).execute();
                   }
                 })
                 .build();
@@ -63,15 +63,7 @@ public abstract class MemoryMatchDatabase extends RoomDatabase {
 
     @Override
     protected Void doInBackground(Void... voids) {
-      //Theme theme = new Theme();
-      //theme.setTitle("Testing");
-      //db.getThemeDao().insert(theme);
-      //theme = new Theme();
-      //theme.setTitle("Testing2");
-      //db.getThemeDao().insert(theme);
       return null;
-
-      //MemoryMatchDatabase.getInstance(this).getThemeDao().insert(theme);
     }
   }
 }
