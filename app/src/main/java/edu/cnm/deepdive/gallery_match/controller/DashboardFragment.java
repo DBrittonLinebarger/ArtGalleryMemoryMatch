@@ -82,16 +82,16 @@ public class DashboardFragment extends Fragment {
           .observe(this, result -> {
             int[] objectIds = result.getObjectIds();
 
-            if (objectIds.length < ThemeViewModel.MIN_CARDS) {
+            if (objectIds == null || objectIds.length < ThemeViewModel.MIN_CARDS) {
               searchTerm.getText().clear();
               new Builder(getContext())
                   .setTitle("Cannot create theme")
                   .setMessage(
-                      String.format("Search returned %d images; unable to create a theme.",
-                          objectIds.length))
-                  //.setView(alertView)
-                  .setPositiveButton("OK", (dialog, which) -> {
-                  })
+                      //String.format("Search returned %d images; unable to create a theme.",
+                          //objectIds.length))
+                        String.format("Not Enough Images"))
+
+                  .setPositiveButton("OK", (dialog, which) -> {})
                   .create()
                   .show();
             } else {

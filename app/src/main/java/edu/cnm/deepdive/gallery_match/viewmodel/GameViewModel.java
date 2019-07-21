@@ -15,17 +15,27 @@ import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
+/**
+ *
+ */
 public class GameViewModel extends AndroidViewModel implements LifecycleObserver {
-
 
   private MutableLiveData<Boolean> busy;
   private CompositeDisposable pending = new CompositeDisposable();
 
+  /**
+   *
+   * @param application
+   */
   public GameViewModel(@NonNull Application application) {
     super(application);
   }
 
-
+  /**
+   *
+   * @param theme
+   * @return
+   */
   public LiveData<List<Card>> getCards(Theme theme) {
 
     return MemoryMatchDatabase.getInstance(getApplication()).getCardDao().getAll(theme.getId());
