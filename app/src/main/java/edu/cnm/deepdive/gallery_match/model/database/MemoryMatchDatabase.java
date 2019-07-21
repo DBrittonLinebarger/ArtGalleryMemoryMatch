@@ -20,6 +20,29 @@ import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 @Database(entities = {Card.class, Game.class, Player.class, Theme.class}, version = 1)
 public abstract class MemoryMatchDatabase extends RoomDatabase {
 
+  private static MemoryMatchDatabase INSTANCE;
+
+  public static MemoryMatchDatabase getInstance(Context context) {
+    if (INSTANCE == null) {
+      synchronized (MemoryMatchDatabase.class) {
+        if (INSTANCE == null) {
+          INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+              MemoryMatchDatabase.class, "memory_match_room")
+              .fallbackToDestructiveMigration()
+              .addCallback(new Callback() {
+                @Override
+                public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                  super.onCreate(db);
+                  //new PopulateDbTask(INSTANCE).execute();
+                }
+              })
+              .build();
+        }
+      }
+    }
+    return INSTANCE;
+  }
+
   public abstract CardDao getCardDao();
 
   public abstract GameDao getGameDao();
@@ -28,34 +51,9 @@ public abstract class MemoryMatchDatabase extends RoomDatabase {
 
   public abstract ThemeDao getThemeDao();
 
-
-  private static MemoryMatchDatabase INSTANCE;
-
-    public static MemoryMatchDatabase getInstance(Context context) {
-      if (INSTANCE == null) {
-        synchronized (MemoryMatchDatabase.class) {
-          if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                MemoryMatchDatabase.class, "memory_match_room")
-                .fallbackToDestructiveMigration()
-                .addCallback(new Callback() {
-                  @Override
-                  public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                    super.onCreate(db);
-                    //new PopulateDbTask(INSTANCE).execute();
-                  }
-                })
-                .build();
-          }
-        }
-      }
-      return INSTANCE;
-    }
-
-
   private static class PopulateDbTask extends AsyncTask<Void, Void, Void> {
 
-      private final MemoryMatchDatabase db;
+    private final MemoryMatchDatabase db;
 
     public PopulateDbTask(MemoryMatchDatabase db) {
       this.db = db;

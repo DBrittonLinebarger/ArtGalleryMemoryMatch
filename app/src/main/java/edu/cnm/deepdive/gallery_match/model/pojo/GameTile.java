@@ -8,7 +8,6 @@ public class GameTile {
   private boolean faceUp;
 
 
-
   public GameTile(Card card) {
     this.card = card;
   }

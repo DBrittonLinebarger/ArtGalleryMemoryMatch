@@ -1,12 +1,10 @@
 package edu.cnm.deepdive.gallery_match.model.entity;
 
-import android.media.Image;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import com.google.gson.annotations.SerializedName;
-import java.net.URL;
 
 @Entity(foreignKeys = {
     @ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id",
@@ -14,7 +12,7 @@ import java.net.URL;
 })
 public class Card {
 
-  @PrimaryKey (autoGenerate = true)
+  @PrimaryKey(autoGenerate = true)
   private long id;
 
   @ColumnInfo(name = "object_id", index = true)
@@ -22,12 +20,12 @@ public class Card {
   private int objectId;
 
   @ColumnInfo(name = "theme_id", index = true)
-  private long  themeId;
+  private long themeId;
 
   private String title;
 
   @ColumnInfo(name = "object_date", index = true)
-  private  String objectDate;
+  private String objectDate;
 
   @SerializedName("primaryImageSmall")
   private String url; // TODO INVESTIGATE CONVERTERS

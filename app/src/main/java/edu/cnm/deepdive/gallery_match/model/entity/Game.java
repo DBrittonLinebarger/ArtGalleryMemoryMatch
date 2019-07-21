@@ -9,9 +9,10 @@ import androidx.room.TypeConverters;
 import java.util.Date;
 
 
-@Entity(foreignKeys = {@ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id",
-    onDelete = ForeignKey.CASCADE),@ForeignKey(entity = Player.class, parentColumns = "id",
-    childColumns = "player_id", onDelete = ForeignKey.CASCADE )
+@Entity(foreignKeys = {
+    @ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id",
+        onDelete = ForeignKey.CASCADE), @ForeignKey(entity = Player.class, parentColumns = "id",
+    childColumns = "player_id", onDelete = ForeignKey.CASCADE)
 })
 public class Game {
 

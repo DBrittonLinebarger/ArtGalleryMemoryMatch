@@ -12,9 +12,7 @@ import edu.cnm.deepdive.gallery_match.model.GameLogic;
 import edu.cnm.deepdive.gallery_match.model.database.MemoryMatchDatabase;
 import edu.cnm.deepdive.gallery_match.model.entity.Card;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 
 public class GameViewModel extends AndroidViewModel implements LifecycleObserver {
@@ -52,11 +50,6 @@ public class GameViewModel extends AndroidViewModel implements LifecycleObserver
     return gameLogic.getTurnCount();
 
   }
-
-
-
-
-
 
 
 }

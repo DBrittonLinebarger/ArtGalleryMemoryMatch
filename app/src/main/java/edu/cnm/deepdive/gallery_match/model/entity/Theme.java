@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 import java.util.Objects;
 
 @Entity(indices = @Index(value = "title", unique = true))
-public class Theme implements Parcelable  { //***
+public class Theme implements Parcelable { //***
 
   public static final Parcelable.Creator<Theme> CREATOR //**
       = new Parcelable.Creator<Theme>() {
@@ -36,7 +36,6 @@ public class Theme implements Parcelable  { //***
     in.readLong();
 
   }
-
 
 
   public long getId() {

@@ -24,7 +24,6 @@ public class GameLogic {
   private int turnCount = 0;
 
 
-
   public GameLogic(Theme theme, List<Card> cards) {
     this.theme = theme;
     this.cards = new ArrayList<>(cards);
@@ -51,7 +50,8 @@ public class GameLogic {
         tile.setFaceUp(true);
         current.add(tile);
         update = true;
-        if (current.size() == 2 && tile.getCard().getUrl().equals(current.get(0).getCard().getUrl())) {
+        if (current.size() == 2 && tile.getCard().getUrl()
+            .equals(current.get(0).getCard().getUrl())) {
           solved.addAll(current);
           unsolved.removeAll(current);
           current.clear();
@@ -65,12 +65,11 @@ public class GameLogic {
             HighScoreService.getInstance().add(score);
           }
 
-        }
-        else if (current.size() == 2) {
+        } else if (current.size() == 2) {
           //TODO mark cards as not a match
         }
 
-      } else if (current.size() == 2){
+      } else if (current.size() == 2) {
         for (GameTile t : current) {
           t.setFaceUp(false);
         }

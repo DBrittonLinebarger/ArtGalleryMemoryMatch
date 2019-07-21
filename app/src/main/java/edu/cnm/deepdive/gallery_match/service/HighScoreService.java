@@ -17,7 +17,7 @@ public class HighScoreService {
   public static final String HIGH_SCORES_KEY = "high_scores";
   private static int maxScores = 10;
   private static Context context;
-  private NavigableSet<Score> scores ;
+  private NavigableSet<Score> scores;
   private Gson gson;
 
   private HighScoreService() {

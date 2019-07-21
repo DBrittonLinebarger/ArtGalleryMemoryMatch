@@ -48,6 +48,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
   }
 
 
+  public interface OnTileClickListener {
+
+    void click(GameTile tile, int position);
+  }
+
   class CardHolder extends RecyclerView.ViewHolder {
 
     private ImageView itemView;
@@ -68,10 +73,5 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
       itemView.setOnClickListener((view) -> listener.click(gameTile, getAdapterPosition()));
     }
 
-  }
-
-  public interface OnTileClickListener {
-
-    void click(GameTile tile, int position);
   }
 }

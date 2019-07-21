@@ -16,15 +16,15 @@ import retrofit2.http.Query;
 
 public interface MetWebService {
 
+  static MetWebService getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
   @GET("search")
   Single<Result> search(@Query("q") String keyword);
 
   @GET("objects/{objectId}")
   Single<Card> get(@Path("objectId") int objectId);
-
-  static MetWebService getInstance() {
-    return InstanceHolder.INSTANCE;
-  }
 
   class InstanceHolder {
 

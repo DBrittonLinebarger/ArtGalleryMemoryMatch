@@ -21,17 +21,30 @@ import edu.cnm.deepdive.gallery_match.R;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.viewmodel.ThemeViewModel;
 
+/**
+ * This class....
+ */
 public class DashboardFragment extends Fragment {
 
   private Button button4x4;
   private ProgressBar progressIndicator;
-  private Spinner themeSpinner;//**
+  private Spinner themeSpinner;
 
+  /**
+   * This method returns an instance of the dashboard fragment.
+   * @return returns Dashboard Fragment.
+   */
   public static DashboardFragment newInstance() {
     return new DashboardFragment();
   }
 
-
+  /**
+   * This.....
+   * @param inflater
+   * @param container
+   * @param savedInstanceState
+   * @return
+   */
   @Override
   public View onCreateView(LayoutInflater inflater,
       ViewGroup container,
@@ -54,7 +67,7 @@ public class DashboardFragment extends Fragment {
 
     });
 
-    ImageButton button4x4 =  view.findViewById(R.id.play);
+    ImageButton button4x4 = view.findViewById(R.id.play);
     themeViewModel.getThemes().observe(this, themes -> {
       // themeSpinner = view.findViewById(R.id.theme_spinner);//**
       ArrayAdapter<Theme> spinnerAdapter = new ArrayAdapter<>(getContext(),
@@ -71,21 +84,24 @@ public class DashboardFragment extends Fragment {
           .observe(this, result -> {
             int[] objectIds = result.getObjectIds();
 
-
             if (objectIds.length < ThemeViewModel.MIN_CARDS) {
               searchTerm.getText().clear();
               new Builder(getContext())
                   .setTitle("Cannot create theme")
                   .setMessage(
-                      String.format("Search returned %d images; unable to create a theme.", objectIds.length ))
-                  .setPositiveButton("OK", (dialog, which) -> {})
+                      String.format("Search returned %d images; unable to create a theme.",
+                          objectIds.length))
+                  .setPositiveButton("OK", (dialog, which) -> {
+                  })
                   .create()
                   .show();
             } else {
               Builder builder = new Builder(getContext())
                   .setTitle("Create Theme")
-                  .setNegativeButton("Cancel", (dialog, which) -> {});
-              View alertView = LayoutInflater.from(builder.getContext()).inflate(R.layout.alert_theme, null);
+                  .setNegativeButton("Cancel", (dialog, which) -> {
+                  });
+              View alertView = LayoutInflater.from(builder.getContext())
+                  .inflate(R.layout.alert_theme, null);
               TextView themeInfo = alertView.findViewById(R.id.theme_info);
               EditText themeTitle = alertView.findViewById(R.id.theme_title);
               themeInfo.setText(String.format("Search returned %d images.", objectIds.length));
@@ -106,8 +122,10 @@ public class DashboardFragment extends Fragment {
 
     });
 
-
-
+    /**
+     * When this play button is clicked, user is taken to GameFragment which displays the cards
+     * for the game.
+     */
     button4x4.setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {

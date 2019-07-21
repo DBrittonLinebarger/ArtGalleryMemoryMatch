@@ -8,14 +8,37 @@ import androidx.room.Query;
 import edu.cnm.deepdive.gallery_match.model.entity.Game;
 import java.util.List;
 
+
+/**
+ * Performs CRUD operations on Card object...
+ */
+
 @Dao
 public interface GameDao {
+
+  /**
+   * Inserts instance of {@link Game}into database.
+   * @param game ....
+   * @return instance3 of game
+   */
 
   @Insert
   long insert(Game game);
 
+
+  /**
+   *Returns the {@link Game} from the database.
+   * @return {@link LiveData...} list of all games.
+   */
+
   @Query("SELECT * FROM game")
   LiveData<List<Game>> getAll();
+
+  /**
+   *Returns the {@link Game} specified by the <code>playerId</code> from the database.
+   * @param playerId {@link playerId} foreign key value.
+   * @return @link LiveData ....} instance.
+   */
 
   @Query("SELECT * FROM game WHERE player_id = :playerId")
   LiveData<List<Game>> getAll(long playerId);

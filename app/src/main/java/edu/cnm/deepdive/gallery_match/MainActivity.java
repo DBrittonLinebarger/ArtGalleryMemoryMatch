@@ -11,13 +11,16 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import edu.cnm.deepdive.gallery_match.controller.DashboardFragment;
 
-/** This class represents a main Android activity
+/**
+ * This class represents a main Android activity
+ *
  * @author Denelle Britton Linebarger
  */
 public class MainActivity extends AppCompatActivity
     implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-  /** Represents the text of the message on the activity
+  /**
+   * Represents the text of the message on the activity
    */
   private TextView mTextMessage;
 
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity
 
         break;
       case R.id.navigation_dashboard:
-         switchFragment(DashboardFragment.newInstance(), true, null);
+        switchFragment(DashboardFragment.newInstance(), true, null);
         break;
       case R.id.navigation_notifications:
 
@@ -60,15 +63,14 @@ public class MainActivity extends AppCompatActivity
     transaction.add(R.id.container, fragment, tag);
     if (useStack) {
       transaction.addToBackStack(tag);
-    }
-    else {
+    } else {
       transaction.commit();
     }
 
   }
 
   // TODO ask if this belongs in Dashboard Fragment?
-  private void switchFragment(Fragment fragment, boolean useStack, String variant){
+  private void switchFragment(Fragment fragment, boolean useStack, String variant) {
     FragmentManager manager = getSupportFragmentManager();
     String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");
     if (manager.findFragmentByTag(tag) != null) {
