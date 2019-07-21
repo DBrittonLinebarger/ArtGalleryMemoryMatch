@@ -36,7 +36,7 @@ public interface GameDao {
 
   /**
    *Returns the {@link Game} specified by the <code>playerId</code> from the database.
-   * @param playerId {@link playerId} foreign key value.
+   * @param playerId {@link Game} foreign key value.
    * @return @link LiveData ....} instance.
    */
 
