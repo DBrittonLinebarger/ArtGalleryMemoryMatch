@@ -13,14 +13,21 @@ import edu.cnm.deepdive.gallery_match.model.pojo.GameTile;
 import edu.cnm.deepdive.gallery_match.view.CardAdapter.CardHolder;
 import java.util.List;
 
-
+/**
+ * 
+ */
 public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
 
   private final Context context;
   private final List<GameTile> tiles;
   private final OnTileClickListener listener;
 
-
+  /**
+   *
+   * @param context
+   * @param tiles
+   * @param listener
+   */
   public CardAdapter(Context context, List<GameTile> tiles,
       OnTileClickListener listener) {
     this.context = context;
@@ -47,12 +54,17 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
     return tiles.size();
   }
 
-
+  /**
+   * sets listener on game tile to detect clicks
+   */
   public interface OnTileClickListener {
 
     void click(GameTile tile, int position);
   }
 
+  /**
+   * loads drawable image for back of card or art image for front of card when it is clicked
+   */
   class CardHolder extends RecyclerView.ViewHolder {
 
     private ImageView itemView;

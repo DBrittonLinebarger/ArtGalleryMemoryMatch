@@ -34,7 +34,7 @@ public interface CardDao {
   /**
    * Returns the {@link Card} specified by the <code>themeId</code> from the database.
    * @param themeId {@link Card} foreign key value.
-   * @return @link LiveData ....} instance.
+   * @return @link LiveData LiveData&lt ....} instance.
    */
   @Query("SELECT * FROM card WHERE theme_id = :themeId")
   LiveData<List<Card>> getAll(long themeId);

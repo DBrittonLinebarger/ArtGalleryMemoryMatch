@@ -22,7 +22,11 @@ import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import edu.cnm.deepdive.gallery_match.viewmodel.ThemeViewModel;
 
 /**
- * This class....
+ * Provides the user with ability to select a new theme for a game.
+ * User can also search for a new theme which is added to the spinner.
+ * Progress indicator is visible while search is in progress and user is notified about
+ * how many images are returned. If user decides to play, progress indicator is visible until
+ * images are loaded. Play button is then enabled.
  */
 public class DashboardFragment extends Fragment {
 
@@ -31,25 +35,19 @@ public class DashboardFragment extends Fragment {
   private Spinner themeSpinner;
 
   /**
-   * This method returns an instance of the dashboard fragment.
+   * Creates a new instance of the dashboard fragment.
    * @return returns Dashboard Fragment.
    */
   public static DashboardFragment newInstance() {
     return new DashboardFragment();
   }
 
-  /**
-   * This.....
-   * @param inflater
-   * @param container
-   * @param savedInstanceState
-   * @return
-   */
+
   @Override
   public View onCreateView(LayoutInflater inflater,
       ViewGroup container,
       Bundle savedInstanceState) {
-    //Inflate the layout for this fragment
+    //Inflates the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_dashboard,
         container, false);
     progressIndicator = view.findViewById(R.id.progress_indicator);
@@ -91,6 +89,7 @@ public class DashboardFragment extends Fragment {
                   .setMessage(
                       String.format("Search returned %d images; unable to create a theme.",
                           objectIds.length))
+                  //.setView(alertView)
                   .setPositiveButton("OK", (dialog, which) -> {
                   })
                   .create()
@@ -123,8 +122,9 @@ public class DashboardFragment extends Fragment {
     });
 
     /**
-     * When this play button is clicked, user is taken to GameFragment which displays the cards
-     * for the game.
+     *
+     * Sets listener on play button.
+     * Takes user to GameFragment that displays the grid of cards for the game, when clicked.
      */
     button4x4.setOnClickListener(new OnClickListener() {
       @Override

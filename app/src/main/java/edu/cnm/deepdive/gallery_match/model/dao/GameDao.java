@@ -19,7 +19,7 @@ public interface GameDao {
   /**
    * Inserts instance of {@link Game}into database.
    * @param game ....
-   * @return instance3 of game
+   * @return instance of game...
    */
 
   @Insert
