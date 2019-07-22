@@ -9,11 +9,11 @@ CREATE TABLE IF NOT EXISTS `Card`
     FOREIGN KEY (`theme_id`) REFERENCES `Theme` (`id`) ON UPDATE NO ACTION ON DELETE CASCADE
 );
 
-CREATE INDEX `index_Card_object_id` ON `Card` (`object_id`);
+CREATE  INDEX `index_Card_object_id` ON `Card` (`object_id`);
 
-CREATE INDEX `index_Card_theme_id` ON `Card` (`theme_id`);
+CREATE  INDEX `index_Card_theme_id` ON `Card` (`theme_id`);
 
-CREATE INDEX `index_Card_object_date` ON `Card` (`object_date`);
+CREATE  INDEX `index_Card_object_date` ON `Card` (`object_date`);
 
 CREATE TABLE IF NOT EXISTS `Game`
 (
@@ -29,15 +29,15 @@ CREATE TABLE IF NOT EXISTS `Game`
     FOREIGN KEY (`player_id`) REFERENCES `Player` (`id`) ON UPDATE NO ACTION ON DELETE CASCADE
 );
 
-CREATE INDEX `index_Game_player_id` ON `Game` (`player_id`);
+CREATE  INDEX `index_Game_player_id` ON `Game` (`player_id`);
 
-CREATE INDEX `index_Game_theme_id` ON `Game` (`theme_id`);
+CREATE  INDEX `index_Game_theme_id` ON `Game` (`theme_id`);
 
-CREATE INDEX `index_Game_play_time` ON `Game` (`play_time`);
+CREATE  INDEX `index_Game_play_time` ON `Game` (`play_time`);
 
-CREATE INDEX `index_Game_date_started` ON `Game` (`date_started`);
+CREATE  INDEX `index_Game_date_started` ON `Game` (`date_started`);
 
-CREATE INDEX `index_Game_date_ended` ON `Game` (`date_ended`);
+CREATE  INDEX `index_Game_date_ended` ON `Game` (`date_ended`);
 
 
 CREATE TABLE IF NOT EXISTS `Player`
