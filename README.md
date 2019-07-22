@@ -9,6 +9,7 @@
 * [Milestone 2](docs/milestone-2.md)
 * [Dashboard Fragment w/Spinner](docs/dashboard-fragment.PNG)
 * [Data Model](docs/data-model.md)
+* [Basic User Instructions](docs/basic-user-instructions.md)
 
 
 ## Art Gallery Memory Match Description
