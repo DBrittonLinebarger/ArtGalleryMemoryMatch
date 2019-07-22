@@ -1,3 +1,6 @@
+//Copyright 2019 Denelle Britton Linebarger
+//    All Rights Reserved.
+
 package edu.cnm.deepdive.gallery_match.model.pojo;
 
 import edu.cnm.deepdive.gallery_match.model.entity.Card;

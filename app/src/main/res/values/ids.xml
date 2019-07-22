@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--Copyright 2019 Denelle Britton Linebarger
+     All Rights Reserved.-->
+
 <resources>
   <item name="matchCount" type="id">matchCount</item>
 </resources>

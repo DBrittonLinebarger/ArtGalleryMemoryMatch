@@ -1,3 +1,6 @@
+<!--Copyright 2019 Denelle Britton Linebarger
+     All Rights Reserved.-->
+
 <ImageView
   android:id="@+id/card_image"
   android:layout_width="100dp"
