@@ -12,7 +12,7 @@ import androidx.room.TypeConverters;
 import java.util.Date;
 
 /**
- * contains methods for returning and setting data for <code>Game</code> entity
+ * Returns and sets data for <code>Game</code> entity.
  */
 @Entity(foreignKeys = {
     @ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id",
@@ -46,125 +46,124 @@ public class Game {
   private Date timestamp;
 
   /**
-   * returns timestamp for this instance
+   * Returns timestamp for this instance.
    */
   public Date getTimestamp() {
     return timestamp;
   }
 
   /**
-   * sets timestamp for this instance
+   * Sets timestamp for this instance.
    */
   public void setTimestamp(Date timestamp) {
     this.timestamp = timestamp;
   }
 
   /**
-   * returns id for this instance
+   * Returns id for this instance.
    */
   public long getId() {
     return id;
   }
 
   /**
-   * sets id for this instance
+   * Sets id for this instance.
    */
   public void setId(long id) {
     this.id = id;
   }
 
   /**
-   * returns playerId for this instance
+   * Returns playerId for this instance.
    */
   public long getPlayerId() {
     return playerId;
   }
 
   /**
-   * sets playerId for this instance
+   * Sets playerId for this instance.
    */
   public void setPlayerId(long playerId) {
     this.playerId = playerId;
   }
 
   /**
-   * returns themeId for this instance
+   * Returns themeId for this instance.
    */
   public long getThemeId() {
     return themeId;
   }
 
   /**
-   * sets themeId for this instance
+   * Sets themeId for this instance.
    */
   public void setThemeId(long themeId) {
     this.themeId = themeId;
   }
 
   /**
-   * returns playTime for this instance
+   * Returns playTime for this instance.
    */
   public int getPlayTime() {
     return playTime;
   }
 
   /**
-   * sets playTime for this instance
+   * Sets playTime for this instance.
    */
   public void setPlayTime(int playTime) {
     this.playTime = playTime;
   }
 
   /**
-   * returns score for this instance
+   * Returns score for this instance.
    */
   public int getScore() {
     return score;
   }
 
   /**
-   * sets score for this instance
+   * Sets score for this instance.
    */
   public void setScore(int score) {
     this.score = score;
   }
 
   /**
-   * returns dateStarted for this instance
+   * Returns dateStarted for this instance.
    */
   public long getDateStarted() {
     return dateStarted;
   }
 
   /**
-   * sets dateStarted for this instance
+   * Sets dateStarted for this instance.
    */
   public void setDateStarted(long dateStarted) {
     this.dateStarted = dateStarted;
   }
 
   /**
-   * returns dateEnded for this instance
+   * Returns dateEnded for this instance.
    */
   public long getDateEnded() {
     return dateEnded;
   }
 
   /**
-   * sets dateEnded for this instance
+   * Sets dateEnded for this instance.
    */
   public void setDateEnded(long dateEnded) {
     this.dateEnded = dateEnded;
   }
 
   /**
-   * creates instance of date for current game
+   * Creates instance of date for current game.
    */
   public static class DateConverter {
 
     /**
      * Converts an instance of Long to an instance of Date  and returns the latter.
-
      */
     @TypeConverter
     public static Date longToDate(Long value) {
@@ -174,7 +173,6 @@ public class Game {
     /**
      * Converts an instance of Date to an instance of Long
      */
-
     @TypeConverter
     public static Long dateToLong(Date value) {
       return value == null ? null : value.getTime();

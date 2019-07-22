@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * contains methods to create, add or delete scores for each game
+ * Creates, adds or deletes scores for each game.
  */
 public class Score implements Comparable<Score> {
 
@@ -19,42 +19,42 @@ public class Score implements Comparable<Score> {
   private int turns;
 
   /**
-   * returns theme for this instance
+   * Returns theme for this instance.
    */
   public Theme getTheme() {
     return theme;
   }
 
   /**
-   * sets theme for this instance
+   * Sets theme for this instance.
    */
   public void setTheme(Theme theme) {
     this.theme = theme;
   }
 
   /**
-   * returns date for this instance
+   * Returns date for this instance.
    */
   public Date getDate() {
     return date;
   }
 
   /**
-   * sets date for this instance
+   * Sets date for this instance.
    */
   public void setDate(Date date) {
     this.date = date;
   }
 
   /**
-   * returns turns for this instance
+   * Returns turns for this instance.
    */
   public int getTurns() {
     return turns;
   }
 
   /**
-   * sets turns for this instance
+   * Sets turns for this instance.
    */
   public void setTurns(int turns) {
     this.turns = turns;

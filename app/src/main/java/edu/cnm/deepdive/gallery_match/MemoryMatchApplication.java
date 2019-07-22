@@ -9,7 +9,7 @@ import com.squareup.picasso.Picasso;
 import edu.cnm.deepdive.gallery_match.service.HighScoreService;
 
 /**
- * contains method that is called when this application is starting
+ * Called when this application is starting.
  * @author Denelle Britton Linebarger
  */
 public class MemoryMatchApplication extends Application {

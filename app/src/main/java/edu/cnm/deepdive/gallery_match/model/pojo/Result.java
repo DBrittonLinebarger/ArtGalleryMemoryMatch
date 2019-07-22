@@ -6,7 +6,7 @@ package edu.cnm.deepdive.gallery_match.model.pojo;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * contains methods for getting and setting number of objects returned from search and objectIds
+ * Gets and sets number of objects returned from search and objectIds.
  */
 public class Result {
 
@@ -16,14 +16,14 @@ public class Result {
   private int[] objectIds;
 
   /**
-   * returns total number of objects for search term for this instance
+   * Returns total number of objects for search term for this instance.
    */
   public int getTotal() {
     return total;
   }
 
   /**
-   *  sets total number of objects for search term   for this instance
+   *  Sets total number of objects for search term   for this instance.
    */
   public void setTotal(int total) {
     this.total = total;
@@ -32,14 +32,14 @@ public class Result {
 
 
   /**
-   * returns objectIds for this instance
+   * Returns objectIds for this instance.
    */
   public int[] getObjectIds() {
     return objectIds;
   }
 
   /**
-   * sets objectIds  for this instance
+   * Sets objectIds  for this instance.
    */
   public void setObjectIds(int[] objectIds) {
     this.objectIds = objectIds;

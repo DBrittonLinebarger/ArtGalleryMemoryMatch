@@ -17,7 +17,7 @@ import edu.cnm.deepdive.gallery_match.view.CardAdapter.CardHolder;
 import java.util.List;
 
 /**
- * converts card data from database into view items displayed in GameFragment
+ * Converts card data from database into view items displayed in GameFragment.
  */
 public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
 
@@ -58,7 +58,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
   }
 
   /**
-   * sets listener on game tile to detect clicks
+   * Sets listener on game tile to detect clicks.
    */
   public interface OnTileClickListener {
 
@@ -66,7 +66,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardHolder> {
   }
 
   /**
-   * loads drawable image for back of card or art image for front of card when it is clicked
+   * Loads drawable image for back of card or art image for front of card when it is clicked.
    */
   class CardHolder extends RecyclerView.ViewHolder {
 

@@ -12,7 +12,7 @@ import edu.cnm.deepdive.gallery_match.model.entity.Player;
 import java.util.List;
 
 /**
- * Performs CRUD operations on {@link Player} entity instance
+ * Performs CRUD operations on {@link Player} entity instances
  */
 @Dao
 public interface PlayerDao {
@@ -28,7 +28,7 @@ public interface PlayerDao {
 
   /**
    * Returns the {@link Player } from the database.
-   * @return {@link LiveData...} list of all players
+   * @return {@link LiveData}  list of all players
    */
   @Query("SELECT * FROM player")
   LiveData<List<Player>> getAll();

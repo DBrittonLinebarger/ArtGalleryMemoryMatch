@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * contains methods for returning and setting data for <code>Card</code> entity
+ * Returns and sets data for <code>Card</code> entity.
  */
 @Entity(foreignKeys = {
     @ForeignKey(entity = Theme.class, parentColumns = "id", childColumns = "theme_id",
@@ -37,84 +37,84 @@ public class Card {
   private String url;
 
   /**
-   *returns id for this instance
+   *Returns id for this instance.
    */
   public long getId() {
     return id;
   }
 
   /**
-   * sets id for this instance
+   * Sets id for this instance.
    */
   public void setId(long id) {
     this.id = id;
   }
 
   /**
-   * returns objectId for this instance
+   * Returns objectId for this instance.
    */
   public int getObjectId() {
     return objectId;
   }
 
   /**
-   * sets objectId for this instance
+   * Sets objectId for this instance.
    */
   public void setObjectId(int objectId) {
     this.objectId = objectId;
   }
 
   /**
-   * returns themeId for this instance
+   * Returns themeId for this instance.
    */
   public long getThemeId() {
     return themeId;
   }
 
   /**
-   * sets themeId for this instance
+   * Sets themeId for this instance.
    */
   public void setThemeId(long themeId) {
     this.themeId = themeId;
   }
 
   /**
-   * returns title for this instance
+   * Returns title for this instance.
    */
   public String getTitle() {
     return title;
   }
 
   /**
-   *sets title for this instance
+   *Sets title for this instance.
    */
   public void setTitle(String title) {
     this.title = title;
   }
 
   /**
-   * returns objectDate for this instance
+   * Returns objectDate for this instance.
    */
   public String getObjectDate() {
     return objectDate;
   }
 
   /**
-   * sets objectDate for this instance
+   * Sets objectDate for this instance.
    */
   public void setObjectDate(String objectDate) {
     this.objectDate = objectDate;
   }
 
   /**
-   *returns url for this instance
+   *Returns url for this instance.
    */
   public String getUrl() {
     return url;
   }
 
   /**
-   *sets url for this instance
+   *Sets url for this instance.
    */
   public void setUrl(String url) {
     this.url = url;

@@ -6,7 +6,7 @@
     <option name="OPTION_DOCUMENT_TAG_USE" value="true" />
     <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="true" />
     <option name="OPTION_DOCUMENT_TAG_VERSION" value="true" />
-    <option name="OTHER_OPTIONS" value="-bootclasspath &quot;C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar&quot;;C:\android\sdk\platforms\android-21\android.jar -link https://docs.oracle.com/javase/8/docs/api/ -linkoffline https://developer.android.com/reference/ &quot;C:\Users\Mommy\Desktop\bootcamp\projects\ArtGalleryMemoryMatch&quot; -windowtitle &quot;Art Gallery Memory Match&quot;" />
+    <option name="OTHER_OPTIONS" value="-bootclasspath &quot;C:\Program Files\Java\jdk1.8.0_202\jre\lib\rt.jar&quot;;C:\android\sdk\platforms\android-21\android.jar -link https://docs.oracle.com/javase/8/docs/api/ -linkoffline https://developer.android.com/reference/ &quot;C:\Users\Mommy\Desktop\bootcamp\projects\ArtGalleryMemoryMatch&quot; -windowtitle &quot;Art Gallery Memory Match&quot; -link https://square.github.io/retrofit/2.x/retrofit/ -link https://square.github.io/picasso/2.x/picasso/ -link http://reactivex.io/RxJava/javadoc/ " />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />

@@ -2,7 +2,7 @@
 
 * PNG
 
-    ![PNG](memory-match-erd.png)
+    ![PNG](memory-match-erd-final.png)
 
 * [PDF](memory-match-erd-update.pdf)
  

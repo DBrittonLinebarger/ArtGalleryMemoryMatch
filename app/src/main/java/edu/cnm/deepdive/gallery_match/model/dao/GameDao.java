@@ -13,36 +13,32 @@ import java.util.List;
 
 
 /**
- * Performs CRUD operations on {@link Game} entity instance
+ * Performs CRUD operations on {@link Game} entity instances
  */
-
 @Dao
 public interface GameDao {
 
   /**
    * Inserts instance of {@link Game}into database.
-   * @param game ....
+   * @param game user game played
    * @return instance of game
    */
-
   @Insert
   long insert(Game game);
 
 
   /**
    *Returns the {@link Game} from the database.
-   * @return {@link LiveData...} list of all games.
+   * @return {@link LiveData}  list of all games.
    */
-
   @Query("SELECT * FROM game")
   LiveData<List<Game>> getAll();
 
   /**
    *Returns the {@link Game} specified by the <code>playerId</code> from the database.
    * @param playerId {@link Game} foreign key value.
-   * @return @link LiveData ....} instance.
+   * @return {@link LiveData}  instance.
    */
-
   @Query("SELECT * FROM game WHERE player_id = :playerId")
   LiveData<List<Game>> getAll(long playerId);
 

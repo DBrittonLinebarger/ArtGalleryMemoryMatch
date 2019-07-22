@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import edu.cnm.deepdive.gallery_match.controller.DashboardFragment;
 
 /**
- * manages navigation between fragments using bottom navigation
+ * Manages navigation between fragments using bottom navigation.
  * @author Denelle Britton Linebarger
  */
 public class MainActivity extends AppCompatActivity
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
     }
     transaction.commit();
   }
-  // TODO ask if this belongs in Dashboard Fragment?
+
 
   //private void addFragment(Fragment fragment, boolean useStack, String variant) {
   //  FragmentManager manager = getSupportFragmentManager();

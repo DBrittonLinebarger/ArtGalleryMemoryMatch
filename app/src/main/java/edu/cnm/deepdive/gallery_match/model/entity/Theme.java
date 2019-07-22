@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey;
 import java.util.Objects;
 
 /**
- * contains methods for returning and setting data for <code>Theme</code> entity
+ * Returns and sets data for <code>Theme</code> entity.
  */
 @Entity(indices = @Index(value = "title", unique = true))
 public class Theme implements Parcelable {
@@ -36,7 +36,7 @@ public class Theme implements Parcelable {
   private String title;
 
   /**
-   * ...
+   * Constructor for theme.
    */
   public Theme() {
   }
@@ -48,28 +48,28 @@ public class Theme implements Parcelable {
   }
 
   /**
-   * returns id for this instance
+   * Returns id for this instance.
    */
   public long getId() {
     return id;
   }
 
   /**
-   * sets id for this instance
+   * Sets id for this instance.
    */
   public void setId(long id) {
     this.id = id;
   }
 
   /**
-   * returns title for this instance
+   * Returns title for this instance.
    */
   public String getTitle() {
     return title;
   }
 
   /**
-   * sets title for this instance
+   * Sets title for this instance.
    */
   public void setTitle(String title) {
     this.title = title;

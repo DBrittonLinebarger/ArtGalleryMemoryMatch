@@ -17,7 +17,7 @@ import java.util.TreeSet;
 
 
 /**
- * adds sorted scores to shared preferences
+ * Adds sorted scores to shared preferences.
  */
 
 public class HighScoreService {
@@ -35,7 +35,7 @@ public class HighScoreService {
   }
 
   /**
-   * allows initialization-on demand for this service
+   * Allows initialization-on demand for this service.
    * @return instance of this service
    */
 
@@ -44,7 +44,7 @@ public class HighScoreService {
   }
 
   /**
-   * Sets maximum number of scores that can be stored in shared preferences
+   * Sets maximum number of scores that can be stored in shared preferences.
    * @param maxScores the maximum number of scores that can be stored
    */
 
@@ -53,7 +53,7 @@ public class HighScoreService {
   }
 
   /**
-   * Provides context for this service
+   * Provides context for this service.
    * @param context context for service
    */
 
@@ -62,7 +62,7 @@ public class HighScoreService {
   }
 
   /**
-   * checks to see if limit reached for max number of stored scores.
+   * Checks to see if limit reached for max number of stored scores.
    * If max number is false, adds latest score.
    * If max number is true, deleletes highest score before adding latest score.
    * @param score score from latest game
@@ -79,7 +79,7 @@ public class HighScoreService {
   }
 
   /**
-   * returns list of scores from games played
+   * Returns list of scores from games played.
    * @return list of scores
    */
 

@@ -19,12 +19,12 @@ import retrofit2.http.Query;
 
 
 /**
- *provides access to Metropolitan Museum of Art Collection API service
+ *Provides access to Metropolitan Museum of Art Collection API service.
  */
 public interface MetWebService {
 
   /**
-   * allows initialization-on demand for this service
+   * Allows initialization-on demand for this service.
    * @return instance of this service
    */
   static MetWebService getInstance() {
@@ -33,7 +33,7 @@ public interface MetWebService {
 
 
   /**
-   * endpoint queries Metropolitan Museum of Art Collection API based on user provided search term
+   * Queries Metropolitan Museum of Art Collection API based on user provided search term.
    * @param keyword search term provided by user for theme
    * @return objects matching search term
    */
@@ -42,7 +42,7 @@ public interface MetWebService {
 
 
   /**
-   * endpoint retrieves object from Metropolitan Museum of Art Collection API using object id
+   * Retrieves object from Metropolitan Museum of Art Collection API using object id.
    * @param objectId id of object returned by Metropolitan Museum of Art Collection API
    * @return object requested
    */
@@ -50,15 +50,15 @@ public interface MetWebService {
   Single<Card> get(@Path("objectId") int objectId);
 
   /**
-   * returns instance of this service
+   * Returns instance of this service.
    */
   class InstanceHolder {
 
     private static final MetWebService INSTANCE;
 
     /**
-     * sends out network requests to Metropolitan Museum of Art Collection API and
-     * deserializes response using Gson library
+     * Sends out network requests to Metropolitan Museum of Art Collection API and
+     * deserializes response using Gson library.
      */
     static {
       // Following five lines should be removed/commented out for production release.

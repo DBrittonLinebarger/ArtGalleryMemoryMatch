@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * Performs CRUD operations on {@link Card} entity instances.
  */
-
 @Dao
 public interface CardDao {
 
@@ -27,9 +26,8 @@ public interface CardDao {
 
   /**
    * Returns the {@link Card} from the database.
-   * @return {@link LiveData...} list of all cards.
+   * @return {@link LiveData}  list of all cards.
    */
-
   @Query("SELECT * FROM card")
   LiveData<List<Card>> getAll();
 
@@ -46,9 +44,8 @@ public interface CardDao {
    * Returns the {@link Card} specified by the <code>themeId</code> from the database.
    *
    * @param themeId {@link Card} foreign key value.
-   * @return {@link LiveData ....}  and returns 8 cards.
+   * @return {@link LiveData}   and returns 8 cards.
    */
-
   @Query("SELECT * FROM card WHERE theme_id = :themeId LIMIT 8 ")
   LiveData<List<Card>> get(long themeId);
 

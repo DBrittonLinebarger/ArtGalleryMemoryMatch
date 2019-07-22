@@ -6,7 +6,7 @@ package edu.cnm.deepdive.gallery_match.model.pojo;
 import edu.cnm.deepdive.gallery_match.model.entity.Card;
 
 /**
- * checks to see if current card is faceUp
+ * Checks to see if current card is faceUp.
  */
 public class GameTile {
 
@@ -15,22 +15,21 @@ public class GameTile {
 
 
   /**
-   * initializes this instance using the specified card instance
-   * @param card ...
+   * Initializes this instance using the specified card instance.
    */
   public GameTile(Card card) {
     this.card = card;
   }
 
   /**
-   * returns card for this instance
+   * Returns card for this instance.
    */
   public Card getCard() {
     return card;
   }
 
   /**
-   * checks to see if game tile is faceup
+   * Checks to see if game tile is faceup.
    * @return true if tile is faceup, false if it is not faceup
    */
   public boolean isFaceUp() {
@@ -38,7 +37,7 @@ public class GameTile {
   }
 
   /**
-   * sets faceup for this instance if back of tile is not showing
+   * Sets faceup for this instance if back of tile is not showing.
    */
   public void setFaceUp(boolean faceUp) {
     this.faceUp = faceUp;
