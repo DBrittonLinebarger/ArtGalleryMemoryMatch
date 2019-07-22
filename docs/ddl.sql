@@ -35,6 +35,11 @@ CREATE  INDEX `index_Game_theme_id` ON `Game` (`theme_id`);
 
 CREATE  INDEX `index_Game_play_time` ON `Game` (`play_time`);
 
+CREATE  INDEX `index_Game_date_started` ON `Game` (`date_started`);
+
+CREATE  INDEX `index_Game_date_ended` ON `Game` (`date_ended`);
+
+
 CREATE TABLE IF NOT EXISTS `Player`
 (
     `id`   INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -46,6 +51,8 @@ CREATE TABLE IF NOT EXISTS `Theme`
     `id`    INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     `title` TEXT
 );
+
+CREATE UNIQUE INDEX `index_Theme_title` ON `Theme` (`title`);
 
 
 
