@@ -12,16 +12,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import edu.cnm.deepdive.gallery_match.controller.DashboardFragment;
 
 /**
- * This class represents a main Android activity
- *
+ * manages navigation between fragments
  * @author Denelle Britton Linebarger
  */
 public class MainActivity extends AppCompatActivity
     implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-  /**
-   * Represents the text of the message on the activity
-   */
   private TextView mTextMessage;
 
   @Override
@@ -53,21 +49,21 @@ public class MainActivity extends AppCompatActivity
 
   }
 
-  private void addFragment(Fragment fragment, boolean useStack, String variant) {
-    FragmentManager manager = getSupportFragmentManager();
-    String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");
-    if (manager.findFragmentByTag(tag) != null) {
-      manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-    }
-    FragmentTransaction transaction = manager.beginTransaction();
-    transaction.add(R.id.container, fragment, tag);
-    if (useStack) {
-      transaction.addToBackStack(tag);
-    } else {
-      transaction.commit();
-    }
-
-  }
+  //private void addFragment(Fragment fragment, boolean useStack, String variant) {
+  //  FragmentManager manager = getSupportFragmentManager();
+  //  String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");
+  //  if (manager.findFragmentByTag(tag) != null) {
+  //    manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+  //  }
+  //  FragmentTransaction transaction = manager.beginTransaction();
+  //  transaction.add(R.id.container, fragment, tag);
+  //  if (useStack) {
+  //    transaction.addToBackStack(tag);
+  //  } else {
+  //    transaction.commit();
+  //  }
+  //
+  //}
 
   // TODO ask if this belongs in Dashboard Fragment?
   private void switchFragment(Fragment fragment, boolean useStack, String variant) {
