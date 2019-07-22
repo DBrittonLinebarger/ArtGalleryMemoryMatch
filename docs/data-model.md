@@ -1,4 +1,12 @@
-##DDL For Data Model
+## ERD
+
+* PNG
+
+    ![PNG](memory-match-erd.png)
+
+* [PDF](memory-match-erd-update.pdf)
+ 
+## DDL For Data Model
 ```sql
 
 CREATE TABLE IF NOT EXISTS `Card`
@@ -59,3 +67,5 @@ CREATE UNIQUE INDEX `index_Theme_title` ON `Theme` (`title`);
 
 
 ```
+
+[SQL](ddl.sql)

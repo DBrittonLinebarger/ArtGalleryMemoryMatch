@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
     }
     return true;
   }
-  
+
   private void switchFragment(Fragment fragment, boolean useStack, String variant) {
     FragmentManager manager = getSupportFragmentManager();
     String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");

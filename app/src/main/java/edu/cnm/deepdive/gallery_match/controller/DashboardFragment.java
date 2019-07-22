@@ -83,43 +83,52 @@ public class DashboardFragment extends Fragment {
 
       themeViewModel.getSearchResult(searchTerm.getText().toString().trim())
           .observe(this, result -> {
-            int[] objectIds = result.getObjectIds();
-
-            if (objectIds.length < ThemeViewModel.MIN_CARDS) {
+            if (result == null) {
               searchTerm.getText().clear();
               new Builder(getContext())
                   .setTitle("Cannot create theme")
-                  .setMessage(
-                      String.format("Search returned %d images; unable to create a theme.",
-                          objectIds.length))
-                  //.setView(alertView)
-                  .setPositiveButton("OK", (dialog, which) -> {
-                  })
+                  .setMessage("Search returned no images."
+                      )
+                  .setPositiveButton("OK", (dialog, which) -> {})
                   .create()
                   .show();
+
             } else {
-              Builder builder = new Builder(getContext())
-                  .setTitle("Create Theme")
-                  .setNegativeButton("Cancel", (dialog, which) -> {
-                  });
-              View alertView = LayoutInflater.from(builder.getContext())
-                  .inflate(R.layout.alert_theme, null);
-              TextView themeInfo = alertView.findViewById(R.id.theme_info);
-              EditText themeTitle = alertView.findViewById(R.id.theme_title);
-              themeInfo.setText(String.format("Search returned %d images.", objectIds.length));
-              themeTitle.setText(searchTerm.getText().toString());
-              builder
-                  .setView(alertView)
-                  .setPositiveButton("OK", (dialog, which) -> {
-                    String title = themeTitle.getText().toString().trim();
+              int[] objectIds = result.getObjectIds();
 
-                    themeViewModel.createTheme(title, objectIds);
-                    searchTerm.getText().clear();
-                  })
-                  .create()
-                  .show();
+              if (objectIds.length < ThemeViewModel.MIN_CARDS) {
+                searchTerm.getText().clear();
+                new Builder(getContext())
+                    .setTitle("Cannot create theme")
+                    .setMessage(
+                        String.format("Search returned %d images; unable to create a theme.",
+                            objectIds.length))
+                    .setPositiveButton("OK", (dialog, which) -> {})
+                    .create()
+                    .show();
+              } else {
+                Builder builder = new Builder(getContext())
+                    .setTitle("Create Theme")
+                    .setNegativeButton("Cancel", (dialog, which) -> {
+                    });
+                View alertView = LayoutInflater.from(builder.getContext())
+                    .inflate(R.layout.alert_theme, null);
+                TextView themeInfo = alertView.findViewById(R.id.theme_info);
+                EditText themeTitle = alertView.findViewById(R.id.theme_title);
+                themeInfo.setText(String.format("Search returned %d images.", objectIds.length));
+                themeTitle.setText(searchTerm.getText().toString());
+                builder
+                    .setView(alertView)
+                    .setPositiveButton("OK", (dialog, which) -> {
+                      String title = themeTitle.getText().toString().trim();
+
+                      themeViewModel.createTheme(title, objectIds);
+                      searchTerm.getText().clear();
+                    })
+                    .create()
+                    .show();
+              }
             }
-
           });
 
     });
