@@ -33,7 +33,42 @@ I decided to create this matching game to provide a fun way for users, who love 
 
 In its current state, the app allows users to play a basic version of the memory match game.  Users are able to enter a search term to create a themed selection of cards if at least 8 images are returned.  Up to fifty images are randomly selected from the search results and stored for each theme for later use in game play.  There are several unimplemented/incomplete elements that need to be implemented or corrected for a more usable prototype:  
 * facilitate faster retrieval of images for tiles in game if possible  
-* add progress bar to track downloading of images
+* add progress bar to track downloading of images  
+
+## API Versions and Hardware Used for Testing App  
+
+* Compiled Sdk version 28  
+* Minimum Sdk version 21  
+* Targeted Sdk version 28  
+* Version code 1  
+* VersionName "1.0"  
+* Emulator: Nexus 5X API 28  
+
+## Third Party Libraries Used by App  
+
+* Room Persistence Library  
+* Stetho  
+* Gson  
+* Reactivex  
+* Retrofit 
+* Picasso  
+
+## External Services Consumed by App  
+ Info for README
+* Metropolitan Museum of Art Collection API  
+
+## Asthetic/Cosmetic Inprovements  
+ The following would improve the asthetics of the app:  
+ * revamp layout of main activity and dashboard fragment 
+ * add an attractive splash screen  
+ * add artwork for back of cards  
+ 
+ ## Functional Stretch Goals  
+ 
+ * facilitate faster retrieval of images for tiles in game if possible   
+ * add additional game grids of varing difficulty (3x5, 5x5, etc.)  
+ * add multi-player option  
+
 
 
 
