@@ -11,6 +11,7 @@
 * [Data Model](docs/data-model.md)
 * [Basic User Instructions](docs/basic-user-instructions.md)
 * [Build Instructions](docs/build-instructions.md)
+* [Licenses and Copyrights](docs/licenses-and-copyrights.md)
 
 
 
