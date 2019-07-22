@@ -10,6 +10,7 @@
 * [Dashboard Fragment w/Spinner](docs/dashboard-fragment.PNG)
 * [Data Model](docs/data-model.md)
 * [Basic User Instructions](docs/basic-user-instructions.md)
+* [Build Instructions](docs/build-instructions.md)
 
 
 ## Art Gallery Memory Match Description
