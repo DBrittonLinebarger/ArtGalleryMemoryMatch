@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import edu.cnm.deepdive.gallery_match.controller.DashboardFragment;
 
 /**
- * manages navigation between fragments
+ * manages navigation between fragments using bottom navigation
  * @author Denelle Britton Linebarger
  */
 public class MainActivity extends AppCompatActivity
@@ -44,10 +44,30 @@ public class MainActivity extends AppCompatActivity
 
         break;
     }
-
     return true;
-
   }
+
+  /**
+   * switches between fragments
+   * @param fragment ....
+   * @param useStack ....
+   * @param variant ....
+   */
+  private void switchFragment(Fragment fragment, boolean useStack, String variant) {
+    FragmentManager manager = getSupportFragmentManager();
+    String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");
+    if (manager.findFragmentByTag(tag) != null) {
+      manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.replace(R.id.container, fragment, tag);
+    if (useStack) {
+      transaction.addToBackStack(tag);
+    }
+    transaction.commit();
+  }
+  // TODO ask if this belongs in Dashboard Fragment?
 
   //private void addFragment(Fragment fragment, boolean useStack, String variant) {
   //  FragmentManager manager = getSupportFragmentManager();
@@ -65,22 +85,5 @@ public class MainActivity extends AppCompatActivity
   //
   //}
 
-  // TODO ask if this belongs in Dashboard Fragment?
-  private void switchFragment(Fragment fragment, boolean useStack, String variant) {
-    FragmentManager manager = getSupportFragmentManager();
-    String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");
-    if (manager.findFragmentByTag(tag) != null) {
-      manager.popBackStackImmediate(tag, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-    }
-
-    //TODO CHECK IF DUPLICATE OF ABOVE CODE
-    FragmentTransaction transaction = manager.beginTransaction();
-    transaction.replace(R.id.container, fragment, tag);
-    if (useStack) {
-      transaction.addToBackStack(tag);
-    }
-    transaction.commit();
-
-  }
 
 }

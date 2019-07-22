@@ -9,10 +9,16 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 import java.util.Objects;
 
+/**
+ * contains methods for returning and setting data for <code>Theme</code> entity
+ */
 @Entity(indices = @Index(value = "title", unique = true))
-public class Theme implements Parcelable { //***
+public class Theme implements Parcelable {
 
-  public static final Parcelable.Creator<Theme> CREATOR //**
+  /**
+   * returns instance of this theme...
+   */
+  public static final Parcelable.Creator<Theme> CREATOR
       = new Parcelable.Creator<Theme>() {
     public Theme createFromParcel(Parcel in) {
       return new Theme(in);
@@ -28,28 +34,42 @@ public class Theme implements Parcelable { //***
   private long id;
   private String title;
 
+  /**
+   * ...
+   */
   public Theme() {
   }
 
-  private Theme(Parcel in) { //***
+  private Theme(Parcel in) {
     in.readString();
     in.readLong();
 
   }
 
-
+  /**
+   * returns id for this instance
+   */
   public long getId() {
     return id;
   }
 
+  /**
+   * sets id for this instance
+   */
   public void setId(long id) {
     this.id = id;
   }
 
+  /**
+   * returns title for this instance
+   */
   public String getTitle() {
     return title;
   }
 
+  /**
+   * sets title for this instance
+   */
   public void setTitle(String title) {
     this.title = title;
   }

@@ -6,8 +6,7 @@ import com.squareup.picasso.Picasso;
 import edu.cnm.deepdive.gallery_match.service.HighScoreService;
 
 /**
- * This class represents a Gallery Match Android application
- *
+ * contains method that is called when this application is starting
  * @author Denelle Britton Linebarger
  */
 public class MemoryMatchApplication extends Application {

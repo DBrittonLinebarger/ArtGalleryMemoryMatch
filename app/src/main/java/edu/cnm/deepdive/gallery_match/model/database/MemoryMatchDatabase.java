@@ -17,11 +17,20 @@ import edu.cnm.deepdive.gallery_match.model.entity.Game;
 import edu.cnm.deepdive.gallery_match.model.entity.Player;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 
+/**
+ * contains methods for getting card, game, player and theme daos
+ *
+ */
 @Database(entities = {Card.class, Game.class, Player.class, Theme.class}, version = 1)
 public abstract class MemoryMatchDatabase extends RoomDatabase {
 
   private static MemoryMatchDatabase INSTANCE;
 
+  /**
+   * returns instance of this database
+   * @param context this application context
+   * @return instance of this database
+   */
   public static MemoryMatchDatabase getInstance(Context context) {
     if (INSTANCE == null) {
       synchronized (MemoryMatchDatabase.class) {
@@ -43,18 +52,38 @@ public abstract class MemoryMatchDatabase extends RoomDatabase {
     return INSTANCE;
   }
 
+  /**
+   * gets <code>CardDao</code>
+   * @return <code>CardDao</code>
+   */
   public abstract CardDao getCardDao();
 
+  /**
+   * gets <code>GameDao</code>
+   * @return <code>GameDao</code>
+   */
   public abstract GameDao getGameDao();
 
+  /**
+   * gets <code>PlayerDao</code>
+   * @return <code>PlayerDao</code>
+   */
   public abstract PlayerDao getPlayerDao();
 
+  /**
+   *gets <code>ThemeDao</code>
+   * @return <code>ThemeDao</code>
+   */
   public abstract ThemeDao getThemeDao();
 
   private static class PopulateDbTask extends AsyncTask<Void, Void, Void> {
 
     private final MemoryMatchDatabase db;
 
+    /**
+     * populates <code>MemoryMatchDatabase</code>
+     * @param db MemoryMatchDatabase
+     */
     public PopulateDbTask(MemoryMatchDatabase db) {
       this.db = db;
     }
