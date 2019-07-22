@@ -13,6 +13,7 @@
 * [Build Instructions](docs/build-instructions.md)
 
 
+
 ## Art Gallery Memory Match Description
 
 My personal Android project is called “Art Gallery Memory Match”.  Like the classic memory game, the object is to match pairs of cards. A 4 x 5 grid of cards will feature works of art from the Metropolitan Museum of Art. The user will be able to choose a theme (i.e. flowers, van Gogh, etc.) for the content of the cards. The user will also have the option to play timed or untimed rounds.  I may add the choice of difficulty levels (easy, medium, hard), where the number of cards presented will increase from level to level.
