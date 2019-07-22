@@ -13,7 +13,7 @@ import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import java.util.List;
 
 /**
- * Performs CRUD operations on object
+ * Performs CRUD operations on {@link Theme } entity instance
  */
 
 @Dao
@@ -22,7 +22,7 @@ public interface ThemeDao {
   /**
    * Inserts instance of {@link Theme}into database.
    * @param theme theme searched for by user
-   * @return theme...
+   * @return theme
    */
 
   @Insert
@@ -48,7 +48,7 @@ public interface ThemeDao {
   /**
    * Deletes theme from database
    * @param themes theme searched for by user
-   * @return .......
+   * @return list with theme deleted
    */
 
   @Delete

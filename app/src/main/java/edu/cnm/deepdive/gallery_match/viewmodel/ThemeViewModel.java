@@ -44,8 +44,7 @@ public class ThemeViewModel extends AndroidViewModel implements LifecycleObserve
   private CompositeDisposable pending = new CompositeDisposable();
 
   /**
-   * ......
-   *
+   * Initializes this instance with the specified {@link Application}
    * @param application .....
    */
   public ThemeViewModel(@NonNull Application application) {

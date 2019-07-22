@@ -11,7 +11,7 @@ import edu.cnm.deepdive.gallery_match.model.entity.Card;
 import java.util.List;
 
 /**
- * Performs CRUD operations on Card object...
+ * Performs CRUD operations on {@link Card} entity instances.
  */
 
 @Dao
@@ -22,7 +22,6 @@ public interface CardDao {
    * @param card instance of image for game.
    * @return instance of Card.
    */
-
   @Insert
   long insert(Card card);
 
@@ -37,7 +36,7 @@ public interface CardDao {
   /**
    * Returns the {@link Card} specified by the <code>themeId</code> from the database.
    * @param themeId {@link Card} foreign key value.
-   * @return @link LiveData LiveData&lt ....} instance.
+   * @return {@link LiveData} instance.
    */
   @Query("SELECT * FROM card WHERE theme_id = :themeId")
   LiveData<List<Card>> getAll(long themeId);

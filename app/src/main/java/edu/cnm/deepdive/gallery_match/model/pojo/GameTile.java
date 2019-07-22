@@ -15,7 +15,7 @@ public class GameTile {
 
 
   /**
-   * returns card for this instance
+   * initializes this instance using the specified card instance
    * @param card ...
    */
   public GameTile(Card card) {

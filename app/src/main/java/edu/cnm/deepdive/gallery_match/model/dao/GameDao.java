@@ -13,7 +13,7 @@ import java.util.List;
 
 
 /**
- * Performs CRUD operations on Card object...
+ * Performs CRUD operations on {@link Game} entity instance
  */
 
 @Dao
@@ -22,7 +22,7 @@ public interface GameDao {
   /**
    * Inserts instance of {@link Game}into database.
    * @param game ....
-   * @return instance of game...
+   * @return instance of game
    */
 
   @Insert

@@ -163,9 +163,8 @@ public class Game {
   public static class DateConverter {
 
     /**
-     * creates instance of current date for game...
-     * @param value date of game
-     * @return instance of current date for game
+     * Converts an instance of Long to an instance of Date  and returns the latter.
+
      */
     @TypeConverter
     public static Date longToDate(Long value) {
@@ -173,9 +172,7 @@ public class Game {
     }
 
     /**
-     * .....
-     * @param value
-     * @return
+     * Converts an instance of Date to an instance of Long
      */
 
     @TypeConverter

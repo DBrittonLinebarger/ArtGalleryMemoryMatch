@@ -49,13 +49,7 @@ public class MainActivity extends AppCompatActivity
     }
     return true;
   }
-
-  /**
-   * switches between fragments
-   * @param fragment ....
-   * @param useStack ....
-   * @param variant ....
-   */
+  
   private void switchFragment(Fragment fragment, boolean useStack, String variant) {
     FragmentManager manager = getSupportFragmentManager();
     String tag = fragment.getClass().getSimpleName() + ((variant != null) ? variant : "");

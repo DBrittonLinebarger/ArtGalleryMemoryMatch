@@ -137,6 +137,7 @@ public class DashboardFragment extends Fragment {
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.container, fragment);
+        //transaction.addToBackStack("tag");
         transaction.commit();
       }
     });

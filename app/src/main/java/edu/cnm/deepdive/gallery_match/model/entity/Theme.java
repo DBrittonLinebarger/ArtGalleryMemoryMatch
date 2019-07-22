@@ -18,9 +18,7 @@ import java.util.Objects;
 @Entity(indices = @Index(value = "title", unique = true))
 public class Theme implements Parcelable {
 
-  /**
-   * returns instance of this theme...
-   */
+  /** {@link Parcelable.Creator} used to read/write to/from a bundle */
   public static final Parcelable.Creator<Theme> CREATOR
       = new Parcelable.Creator<Theme>() {
     public Theme createFromParcel(Parcel in) {

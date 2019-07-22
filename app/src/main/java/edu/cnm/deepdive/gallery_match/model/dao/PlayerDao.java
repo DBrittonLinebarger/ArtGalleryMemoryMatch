@@ -12,15 +12,15 @@ import edu.cnm.deepdive.gallery_match.model.entity.Player;
 import java.util.List;
 
 /**
- * Performs CRUD operations on Player object
+ * Performs CRUD operations on {@link Player} entity instance
  */
 @Dao
 public interface PlayerDao {
 
   /**
    * Inserts instance of {@link Player}into database.
-   * @param player Player....
-   * @return Player..
+   * @param player user
+   * @return Player
    */
   @Insert
   long insert(Player player);

@@ -28,7 +28,8 @@ public class GameViewModel extends AndroidViewModel implements LifecycleObserver
   private CompositeDisposable pending = new CompositeDisposable();
 
   /**
-   * ......
+   * Initializes this instance with the specified {@link Application}
+   * @param application
    */
   public GameViewModel(@NonNull Application application) {
     super(application);
@@ -46,7 +47,7 @@ public class GameViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
   /**
-   * clears list?
+   * Disposes obsolete thread references when fragment stops
    */
   @OnLifecycleEvent(Event.ON_STOP)
   public void disposePending() {
@@ -64,10 +65,8 @@ public class GameViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
   /**
-   * gets number of matches in game
+   * gets number of matches in game for specified instance
    *
-   * @param gameLogic ....
-   * @return number of matches in game
    */
   public int getMatchCount(GameLogic gameLogic) {
     return gameLogic.getMatchCount();
@@ -75,10 +74,8 @@ public class GameViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
   /**
-   * gets number of turns used to complete a game
+   * gets number of turns used to complete a game for specified instance
    *
-   * @param gameLogic ....
-   * @return number of turns used to complete a game
    */
   public int getTurnCount(GameLogic gameLogic) {
     return gameLogic.getTurnCount();

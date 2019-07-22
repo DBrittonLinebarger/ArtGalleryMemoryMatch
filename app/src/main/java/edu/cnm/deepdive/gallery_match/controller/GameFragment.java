@@ -79,6 +79,7 @@ public class GameFragment extends Fragment implements OnTileClickListener {
       cardAdapter = new CardAdapter(getContext(), gameLogic.getTiles(), this);
       gameGridview.setAdapter(cardAdapter);
     });
+    getLifecycle().addObserver(gameViewModel);
 
     return view;
   }

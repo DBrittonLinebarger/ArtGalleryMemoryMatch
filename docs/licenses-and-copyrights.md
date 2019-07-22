@@ -1,9 +1,9 @@
-## Licenses and Copyrights
+# Licenses and Copyrights
 
-# Copyright 2019 Denelle Britton Linebarger
-# All Rights Reserved.  
+## Copyright 2019 Denelle Britton Linebarger
+## All Rights Reserved.  
 
-# Retrofit  
+## Retrofit  
 Copyright 2013 Square, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-# Gson  
+## Gson  
 Copyright 2008-2011 Google Inc.
 
 	
@@ -46,7 +46,7 @@ Copyright 2008-2011 Google Inc.
 	   limitations under the License.
 
 
-# Picasso  
+## Picasso  
 Copyright 2013 Square, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -61,7 +61,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-# Reactivex  
+## Reactivex  
 
 Copyright 2015 The RxAndroid authors
 
@@ -77,7 +77,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-# Also using  
+## Also using  
 Copyright (c) 2016-present, RxJava Contributors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -92,7 +92,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-# Met Images  
+## Met Images  
 Images provided by the MET are under the CCO license.
 
 

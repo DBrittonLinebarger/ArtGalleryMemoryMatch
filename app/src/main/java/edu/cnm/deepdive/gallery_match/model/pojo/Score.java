@@ -9,32 +9,53 @@ import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * contains methods to create, add or delete scores for each game
+ */
 public class Score implements Comparable<Score> {
 
   private Theme theme;
   private Date date;
   private int turns;
 
+  /**
+   * returns theme for this instance
+   */
   public Theme getTheme() {
     return theme;
   }
 
+  /**
+   * sets theme for this instance
+   */
   public void setTheme(Theme theme) {
     this.theme = theme;
   }
 
+  /**
+   * returns date for this instance
+   */
   public Date getDate() {
     return date;
   }
 
+  /**
+   * sets date for this instance
+   */
   public void setDate(Date date) {
     this.date = date;
   }
 
+  /**
+   * returns turns for this instance
+   */
   public int getTurns() {
     return turns;
   }
 
+  /**
+   * sets turns for this instance
+   */
   public void setTurns(int turns) {
     this.turns = turns;
   }
