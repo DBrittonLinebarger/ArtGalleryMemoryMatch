@@ -19,8 +19,8 @@ Click the next button. On the next menu screen check the box "Use auto-import" a
 
 This should happen automatically in Intellij IDEA. However, if it does not, in build.gradle(Module:app) file there should be an option to do so.
 
-## 4. Execute the build
+## 4. Add Configuration
 
-Under the Build drop down menu select "build".  
+Add configuration for android app using default activity.  
 
 The app should now be ready to run. Selected the device you want to install it on and click the okay button.
