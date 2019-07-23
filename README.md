@@ -1,4 +1,3 @@
-### Art Gallery Memory Match
 
 * [User stories](docs/user-stories.md)
 * [Updated Wireframes](docs/wireframes-final.pdf)
