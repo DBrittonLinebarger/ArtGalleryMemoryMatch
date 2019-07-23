@@ -1,7 +1,7 @@
 ### Art Gallery Memory Match
 
 * [User stories](docs/user-stories.md)
-* [Updated Wireframes](docs/wireframes-updated.pdf)
+* [Updated Wireframes](docs/wireframes-final.pdf)
 * [Updated ERD](docs/memory-match-erd-final.png)
 * [Milestone 2](docs/milestone-2.md)
 * [Dashboard Fragment w/Spinner](docs/dashboard-fragment.PNG)
@@ -9,6 +9,7 @@
 * [Basic User Instructions](docs/basic-user-instructions.md)
 * [Build Instructions](docs/build-instructions.md)
 * [Licenses and Copyrights](docs/licenses-and-copyrights.md)
+* [Javadoc](docs/api/overview-summary.html)
 
 
 
@@ -64,7 +65,7 @@ In its current state, the app allows users to play a basic version of the memory
  * add an attractive splash screen  
  * add artwork for back of cards  
  
- ## Functional Stretch Goals  
+## Functional Stretch Goals  
  
  * facilitate faster retrieval of images for tiles in game if possible   
  * add additional game grids of varing difficulty (3x5, 5x5, etc.)  

@@ -50,6 +50,7 @@ public class ThemeDaoTest {
     Theme theme = new Theme();
     theme.setTitle("Birds");
     long id = dao.insert(theme);
+
   }
 
   @Test

@@ -46,6 +46,9 @@
     app:layout_constraintTop_toBottomOf="@id/matchCountText"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toLeftOf="@id/turnCount"
+    app:layout_constraintStart_toStartOf="@id/matchCountText"
+    app:layout_constraintEnd_toEndOf="@id/matchCountText"
+    android:textSize="18dp"
     android:text="Cards Turned"/>
 
   <TextView

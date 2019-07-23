@@ -108,7 +108,7 @@ public class DashboardFragment extends Fragment {
                     .show();
               } else {
                 Builder builder = new Builder(getContext())
-                    .setTitle("Create Theme")
+                    .setTitle("Create Theme?")
                     .setNegativeButton("Cancel", (dialog, which) -> {
                     });
                 View alertView = LayoutInflater.from(builder.getContext())
@@ -119,7 +119,7 @@ public class DashboardFragment extends Fragment {
                 themeTitle.setText(searchTerm.getText().toString());
                 builder
                     .setView(alertView)
-                    .setPositiveButton("OK", (dialog, which) -> {
+                    .setPositiveButton("Yes", (dialog, which) -> {
                       String title = themeTitle.getText().toString().trim();
 
                       themeViewModel.createTheme(title, objectIds);

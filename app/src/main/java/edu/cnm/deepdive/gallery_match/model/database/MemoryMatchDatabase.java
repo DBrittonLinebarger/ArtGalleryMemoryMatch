@@ -21,8 +21,7 @@ import edu.cnm.deepdive.gallery_match.model.entity.Player;
 import edu.cnm.deepdive.gallery_match.model.entity.Theme;
 
 /**
- * Gets card, game, player and theme daos.
- *
+ * Gets card, game, player and theme daos.*
  */
 @Database(entities = {Card.class, Game.class, Player.class, Theme.class}, version = 1)
 public abstract class MemoryMatchDatabase extends RoomDatabase {
