@@ -39,14 +39,23 @@ public class ThemeDaoTest {
 
   @Test
   public void getAll() {
+    Theme theme = new Theme();
+    theme.setTitle("Birds");
+    long id = dao.insert(theme);
 
   }
 
   @Test
   public void selectThemeByTitle() {
+    Theme theme = new Theme();
+    theme.setTitle("Birds");
+    long id = dao.insert(theme);
   }
 
   @Test
   public void delete() {
+    Theme theme = new Theme();
+    theme.setTitle("Birds");
+    long id = dao.insert(theme);
   }
 }
